@@ -104,20 +104,27 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Xrall">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）　　Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    #">
+<meta name="keywords" content="Java - Spring - 学习 - IoC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java框架学习之Spring（IoC）">
+<meta property="og:url" content="http://yoursite.com/my/Java框架之Spring/index.html">
 <meta property="og:site_name" content="Xrall">
+<meta property="og:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）　　Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    #">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/007i4MEmgy1g1gib1v1moj30g50cgjsh.jpg">
+<meta property="og:updated_time" content="2019-03-26T17:50:28.480Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xrall">
+<meta name="twitter:title" content="Java框架学习之Spring（IoC）">
+<meta name="twitter:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）　　Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    #">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/007i4MEmgy1g1gib1v1moj30g50cgjsh.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/my/Java框架之Spring/">
 
 
 
@@ -127,7 +134,7 @@
   };
 </script>
 
-  <title>Xrall</title>
+  <title>Java框架学习之Spring（IoC） | Xrall</title>
   
 
 
@@ -175,8 +182,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <!-- 跳转自己Github -->
     <a href="https://github.com/xrall39" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -216,7 +222,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -329,9 +335,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -363,10 +369,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/my/Java框架之Spring/" class="post-title-link" itemprop="url">Java框架学习之Spring（IoC）</a>
+          <h1 class="post-title" itemprop="name headline">Java框架学习之Spring（IoC）
+
               
             
           </h1>
@@ -460,24 +464,63 @@
       
 
       
-        
-          
-            <p>
-              　　学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）　　Spring是一个开源、轻量级的 一站式框架。  
+        <p>　　学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。<br>　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）<br>　　Spring是一个<strong>开源</strong>、<strong>轻量级</strong>的 <strong>一站式</strong>框架。  </p>
+<ul>
+<li><strong>轻量级</strong>：如果一个框架没有<strong>侵入性</strong>，就可说该框架是轻量级。</li>
+<li><strong>侵入式</strong>：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。  </li>
+</ul>
+<p>##优点：</p>
+<ul>
+<li>方便解耦，简化开发</li>
+<li>面向切面编程AOP</li>
+<li>提供众多服务，事务管理</li>
+<li>对众多主流框架集成，如Hibernate,Struts2,JPA等…</li>
+</ul>
+<p>下图为Spring体系结构：<br><img src="https://ww1.sinaimg.cn/large/007i4MEmgy1g1gib1v1moj30g50cgjsh.jpg" alt="Spring-Framework"></p>
+<p>##(介绍草草结束，开始正题…)<br>　　那么一提起Spring那就是两个点：<strong>IoC（控制反转）、AOP（面向切面编程）</strong>，那么我们就需要来讲什么是IoC，什么是AOP。 </p>
+<p>　　IoC（控制反转）：控制反转是什么？控制了什么？怎么又反转了？</p>
+<p>　　我们从JavaSE学习过来，知道使用对象之前必须先通过 <strong>new</strong> 来进行创建的，是程序主动创建 <strong>依赖对象</strong> ，而有了IoC后，我们将 <strong>设计好的对象交给容器控制，而非手动的在对象内部直接控制（如对象的创建）。</strong>那么 <strong>谁控制谁？当然是IoC容器控制了对象；控制了什么？主要控制了外部资源获取（不只是对象包括比如文件等）。</strong>    </p>
+<p>　　PS：依赖对象其实就是一个普通对象，只是被调用者所依赖，称为依赖对象。</p>
+<p>　　为何是反转，哪些方面反转了：传统方法是我们自己在对象中主动控制获取依赖对象，而反转过后是由容器来帮忙创建及注入依赖对象；这里可能就有疑问，为何是反转呢？ <strong>因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；哪些方面反转了？依赖对象的获取被反转了。</strong><br>　　PS：写了上面一段感觉，怎么说呢，不好理解。那么举个栗子来讲一下： 假如说你上班要开车 ，传统方式  </p>
+<pre><code>public class Person{
+    //属性
 
-轻量级：如果一个框架没有侵入性，就
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/my/Java框架之Spring/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+    //开车方法
+    public void driverCar(){
+        Car car = new Car();
+        car.run();
+    }
+    //....get、set方法
+}
+</code></pre><p> <strong>开车方法</strong> 里面 <strong>new</strong> 一个（买一个）车，开车一结束（方法执行完毕）车自然就销毁了。上面段话，人执行开车方法时候，那么人依赖车（没车咋开车，买一个）。这里车就是 <strong>依赖对象</strong> ，而且你会发现每次开车都需要 <strong>new</strong> （买）一个车，过于浪费。那么改进一下</p>
+<pre><code>public class Person{
+    //属性
+
+    //开车方法
+    public void driverCar(Car car){
+        car.run();
+    }
+    //....get、set方法
+}
+</code></pre><p>我们不必在开车方法里面每次 <strong>new</strong> 一个车，而是通过传参的形式，就变成了我要开车上班了，那么我需要去找（传参）一辆车来开。  </p>
+<p>　　从最开始每次开车要去买一个，变成了每次开车找一个车来开，有什么不同呢，第一种方式就是我要开车就要买车，而第二种就不需要买一辆车（可以是租可以借等…），减少了人对车的依赖。这时候新问题来了不管第一种还是第二种我们都需要手动 <strong>new</strong> 一个车。  </p>
+<p>　　这时候Spring出场！我们就有一了一个 <strong>IoC容器</strong> ，而不在需要自己手动的new了！通过一系列的 <strong>配置</strong> ，可以使其 <strong>IoC容器</strong> 管理这些对象（如：车），在我们需要的时候自动注入（传参）进来。这样 <strong>IoC容器</strong> 就完成了对 <strong>对象的控制，以及反转</strong> ，也就诠释了 <strong>对象（人）只是被动的接受依赖对象（车）</strong> 。<br><br></p>
+<p>##讲了这么多，那IoC能做什么？  </p>
+<p>　　IoC不是一种技术，只是一种<strong>思想</strong>，一个重要的面向对象编程的法则，它能指导我们如何设计出 <strong>松耦合</strong>、更优良的程序。传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试；有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。  </p>
+<p>　　其实IoC对编程带来的最大改变不是从代码上，而是从思想上，发生了 <strong>“主从换位”</strong> 的变化。应用程序原本是老大，要获取什么资源都是主动出击，但是在IoC/DI思想中，应用程序就变成被动的了，被动的等待IoC容器来创建并注入它所需要的资源了。</p>
+<p>　　IoC很好的体现了面向对象设计法则之一—— 好莱坞法则：“别找我们，我们找你”；即由IoC容器帮对象找相应的依赖对象并注入，而不是由对象主动去找。</p>
+<p>##IoC和DI<br>　　DI—Dependency Injection，即“依赖注入”：是组件之间依赖关系由容器在运行期决定，形象的说，即由容器动态的将某个依赖关系注入到组件之中。依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。通过依赖注入机制，我们只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。</p>
+<p>　　理解DI的关键是：“谁依赖谁，为什么需要依赖，谁注入谁，注入了什么”，那我们来深入分析一下：</p>
+<ul>
+<li>谁依赖于谁：当然是应用程序依赖于IoC容器；</li>
+<li>为什么需要依赖：应用程序需要IoC容器来提供对象需要的外部资源；</li>
+<li>谁注入谁：很明显是IoC容器注入应用程序某个对象，应用程序依赖的对象；</li>
+<li>注入了什么：就是注入某个对象所需要的外部资源（包括对象、资源、常量数据）。</li>
+</ul>
+<p>　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”。</p>
+<p>最后结尾：  </p>
+<p>　　控制正转：我们直接在对象内部通过new进行创建对象，程序主动去创建依赖对象。<br>　　控制反转：由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象。</p>
+
       
     </div>
 
@@ -498,180 +541,37 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xrall 39">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/touxiang.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xrall">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/my/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-19 01:16:36" itemprop="dateCreated datePublished" datetime="2019-03-19T01:16:36+08:00">2019-03-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-27 01:43:42" itemprop="dateModified" datetime="2019-03-27T01:43:42+08:00">2019-03-27</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-
+          <!-- 修改#变 标签图标  rel="tag"># -->
+            <a href="/tags/Java-Spring-学习-IoC/" <i class="fa fa-tag"> Java - Spring - 学习 - IoC</a>
           
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-            <p>
-              　　因为自动生成的索性就写一下自己的第一篇文章吧。
-　　到这里我也不知道该写什么，一切都是那么的匆忙。而我的灵感更似干枯的泉水一般，不能向外喷涌。但是做一件事肯定是有一件事的意义的，就好似这个博客，在17年底的时候想学习编程且搭建一个属于自己的博客，因为自身的因素,这些事情也无限期延后了。直到去年年
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/my/hello-world/#more" rel="contents">
-                阅读全文 &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/my/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
+            
+          </div>
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -681,14 +581,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -925,6 +826,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -935,6 +840,8 @@
   
   
 
+
+  
 
 
   
