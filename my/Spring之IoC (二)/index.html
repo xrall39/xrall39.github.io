@@ -104,20 +104,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Xrall">
-<meta property="og:url" content="http://yoursite.com/tags/Spring/index.html">
+  <meta name="description" content="之前关于IoC（控制反转）这个思想写了一大堆总结（废话），也算是对其有了一定的了解，那么之前写这么多理论的东西，这一篇就该写一下Spring使用方式。　　首先，关于Spring的IoC我们需要了解以下几点：  IoC容器　　IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参注入。">
+<meta name="keywords" content="Java,Spring,IoC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring之IoC (二)">
+<meta property="og:url" content="http://yoursite.com/my/Spring之IoC (二)/index.html">
 <meta property="og:site_name" content="Xrall">
+<meta property="og:description" content="之前关于IoC（控制反转）这个思想写了一大堆总结（废话），也算是对其有了一定的了解，那么之前写这么多理论的东西，这一篇就该写一下Spring使用方式。　　首先，关于Spring的IoC我们需要了解以下几点：  IoC容器　　IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参注入。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-04T18:13:32.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xrall">
+<meta name="twitter:title" content="Spring之IoC (二)">
+<meta name="twitter:description" content="之前关于IoC（控制反转）这个思想写了一大堆总结（废话），也算是对其有了一定的了解，那么之前写这么多理论的东西，这一篇就该写一下Spring使用方式。　　首先，关于Spring的IoC我们需要了解以下几点：  IoC容器　　IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参注入。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Spring/">
+  <link rel="canonical" href="http://yoursite.com/my/Spring之IoC (二)/">
 
 
 
@@ -127,7 +132,7 @@
   };
 </script>
 
-  <title>标签: Spring | Xrall</title>
+  <title>Spring之IoC (二) | Xrall</title>
   
 
 
@@ -175,7 +180,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <!-- 跳转自己Github -->
     <a href="https://github.com/xrall39" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -266,7 +271,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -305,28 +310,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -351,82 +334,244 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Spring<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/Spring之IoC (二)/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xrall 39">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xrall">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/my/Spring之IoC (二)/" itemprop="url">
-            
-              <span itemprop="name">Spring之IoC (二)</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Spring之IoC (二)
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-05T00:47:30+08:00" content="2019-04-05">
-          04-05
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-05 00:47:30 / 修改时间：02:13:32" itemprop="dateCreated datePublished" datetime="2019-04-05T00:47:30+08:00">2019-04-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>　　之前关于IoC（控制反转）这个思想写了一大堆总结（废话），也算是对其有了一定的了解，那么之前写这么多理论的东西，这一篇就该写一下Spring使用方式。<br>　　首先，关于Spring的IoC我们需要了解以下几点：</p>
+<ul>
+<li><p>IoC容器<br>　　<strong>IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。</strong>最直白的展示就是能代替我们new且代替了我们手动传参注入。</p>
+</li>
+<li><p>Bean概念<br>　　 由IoC容器管理的那些组成你应用程序的对象我们就叫它Bean， <strong>Bean就是由Spring容器初始化、装配及管理的对象</strong>，除此之外，bean就与应用程序中的其他对象没有什么区别了。</p>
+</li>
+</ul>
+<p>　　Spring这个容器是通过XML配置文件来进行管理的所以先从配置文件入手。直接配置文件先展示一段对比看一下。</p>
+<pre><code>&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt; 这是一堆基本信息
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/my/Spring之IoC/" itemprop="url">
-            
-              <span itemprop="name">Spring之IoC (一)</span>
-            
-          </a>
-        
-      </h2>
+//下面书写的就是我们正式的内容
+&lt;bean id=&quot;userService&quot; class&quot;FQN&quot;&gt;
+// UserService userservice = new UserServiceImp(); 这一句代码等同于上面一段标签体
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-26T17:49:48+08:00" content="2019-03-26">
-          03-26
-        </time>
-      </div>
 
-    </header>
-  </article>
-
+&lt;/beans&gt;
+</code></pre><p>　　FQN： 全限定类名。就是项目中你所创建该类的位置如：com.soecode.xr.service </p>
+<p>　　bean标签：</p>
+<ul>
+<li>id：标识符或名字（唯一）。</li>
+<li>name：同样为标识符（唯一）。</li>
+<li>class：指定类位置也就是用FQN表示。</li>
+</ul>
+<p>###实例化Bean###<br>　　第一种：<strong>使用构造器实例化Bean</strong><br>　　　　如果是默认空构造函数一句话搞定</p>
+<pre><code>&lt;bean id=&quot;bean1&quot; class&quot;FQN&quot;&gt;
+</code></pre><p>　　　　但是有可能你实例化的时候他还要带参数对吧，那么就需要在配置详细点</p>
+<pre><code>&lt;bean id=&quot;bean2&quot; class=&quot;FQN&quot;&gt;  
+&lt;!-- 指定构造器参数 --&gt;  
+     &lt;constructor-arg index=&quot;0&quot; value=&quot;Hello Spring!&quot;/&gt;  
+//Public userService(String message) Hello Spring就传给 userService
+&lt;/bean&gt;  
+</code></pre><p>　　index表示位置，value表示常量值，也可以指定引用（可能传入的参数是一个类所以要引用另外一个 bean）<br>　　其实这里应该有疑问，既然Spring代替我们手动new那我们又如何使用呢？<br>　　基本格式如下：</p>
+<pre><code>String xmlPath = &quot;com/beans.xml&quot;;//指的是配置文件路径
+//加载配置文件
+ApplicationContext ApplicationContext =  
+        new ClassPathXmlApplicationContext(&quot;xmlPath&quot;);  
+//通过getBean读取出实体类
+//  bean1 对应配置文件ID   UserService.class对应的是实体类的字节码就不需要强转了
+UserService userservice = ApplicationContext.getBean(&quot;bean1&quot;, UserService.class); 
+//没有 UserService.class 这样需要强转
+UserService userservice = (UserService)ApplicationContext.getBean(&quot;bean1&quot;); 
+</code></pre><p>　　第二种：<strong>静态工厂实例化Bean</strong></p>
+<p>　　第三种：<strong>动态工厂实例化Bean</strong></p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+          <!-- 修改#变 标签图标  rel="tag"># -->
+            <a href="/tags/Java/" <i class="fa fa-tag"> Java</a>
+          
+          <!-- 修改#变 标签图标  rel="tag"># -->
+            <a href="/tags/Spring/" <i class="fa fa-tag"> Spring</a>
+          
+          <!-- 修改#变 标签图标  rel="tag"># -->
+            <a href="/tags/IoC/" <i class="fa fa-tag"> IoC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/my/Spring之IoC/" rel="next" title="Spring之IoC (一)">
+                <i class="fa fa-chevron-left"></i> Spring之IoC (一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -667,6 +812,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -677,6 +826,8 @@
   
   
 
+
+  
 
 
   
