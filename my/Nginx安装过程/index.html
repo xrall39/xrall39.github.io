@@ -105,14 +105,14 @@
 
 
   <meta name="description" content="今天记录一下Nginx在centos7下如何进行安装。 安装之前的一些话题因为我也是第一次学习安装Nginx，我就有一些小疑惑，一直在说Nginx那么Nginx那它到底是个什么东西？然后怎么安装啊？官网直接下载运行就完事了？还是怎么的？在此就顺便记录一下Nginx的大概，以及遇见问题如何解决的思路等…声明：全程使用的是root权限 从来没安装过软件步骤咋整源码安装正常流程…下载、解压、运行、编译、">
-<meta name="keywords" content="Nginx,centos7,Linux">
+<meta name="keywords" content="Linux,Nginx,centos7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx安装过程">
 <meta property="og:url" content="http://yoursite.com/my/Nginx安装过程/index.html">
 <meta property="og:site_name" content="Xrall">
 <meta property="og:description" content="今天记录一下Nginx在centos7下如何进行安装。 安装之前的一些话题因为我也是第一次学习安装Nginx，我就有一些小疑惑，一直在说Nginx那么Nginx那它到底是个什么东西？然后怎么安装啊？官网直接下载运行就完事了？还是怎么的？在此就顺便记录一下Nginx的大概，以及遇见问题如何解决的思路等…声明：全程使用的是root权限 从来没安装过软件步骤咋整源码安装正常流程…下载、解压、运行、编译、">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T15:45:21.190Z">
+<meta property="og:updated_time" content="2019-07-18T16:12:39.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx安装过程">
 <meta name="twitter:description" content="今天记录一下Nginx在centos7下如何进行安装。 安装之前的一些话题因为我也是第一次学习安装Nginx，我就有一些小疑惑，一直在说Nginx那么Nginx那它到底是个什么东西？然后怎么安装啊？官网直接下载运行就完事了？还是怎么的？在此就顺便记录一下Nginx的大概，以及遇见问题如何解决的思路等…声明：全程使用的是root权限 从来没安装过软件步骤咋整源码安装正常流程…下载、解压、运行、编译、">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-18 23:45:21" itemprop="dateModified" datetime="2019-07-18T23:45:21+08:00">2019-07-18</time>
+                <time title="修改时间：2019-07-19 00:12:39" itemprop="dateModified" datetime="2019-07-19T00:12:39+08:00">2019-07-19</time>
               
             
           </span>
@@ -547,7 +547,7 @@
 <li><code>systemctl start nginx.service</code><br>再次出错？什么意思<code>Failed to start nginx.service: Unit not found.</code>没找到？什么鬼东西。</li>
 </ul>
 <p>只有去文件夹里面寻找启动文件了。<code>cd /usr/local/nginx/sbin</code>然后<code>./nginx</code></p>
-<p>项目启动成功了。我一访问，Em怎么访问不了啊。<br>在网上找了一下解决方案。原因可能就是没开放80端口吧。<br>开放80端口firewall-cmd –zone=public –add-port=80/tcp –permanent<br>停止防火墙systemctl stop firewalld.service<br>启动防火墙systemctl start firewalld.service</p>
+<p>项目启动成功了。我一访问，Em怎么访问不了啊。<br>在网上找了一下解决方案。原因可能就是没开放80端口吧。<br><code>firewall-cmd --list-ports</code>查看开放了的端口<br>开放80端口firewall-cmd –zone=public –add-port=80/tcp –permanent<br>停止防火墙systemctl stop firewalld.service<br>启动防火墙systemctl start firewalld.service</p>
 <h3 id="问题解释"><a href="#问题解释" class="headerlink" title="问题解释"></a>问题解释</h3><p>解释一下centos7过后<code>systemctl 替代了 service</code>所以有以上错误，至于第二个错误的原因是，我们是通过手动编译源码导致的，<br>如果你是通过<code>yum</code>命令来安装的话<code>systemctl</code>启动时没问题的。<br>但是有点不甘心每次都要进目录去执行，下面就写一下解决方法。</p>
 <p>解决方案：<br><code>vim /lib/systemd/system/nginx.service</code>创建一个nginx.service文件</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=nginx</span><br><span class="line">After=network.target</span><br><span class="line">  </span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/local/nginx/sbin/nginx</span><br><span class="line">ExecReload=/usr/local/nginx/sbin/nginx -s reload</span><br><span class="line">ExecStop=/usr/local/nginx/sbin/nginx -s <span class="keyword">quit</span></span><br><span class="line">PrivateTmp=true</span><br><span class="line">  </span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
@@ -587,13 +587,13 @@
         <div class="post-tags">
           
           <!-- 修改#变 标签图标  rel="tag"># -->
+            <a href="/tags/Linux/" <i class="fa fa-tag"> Linux</a>
+          
+          <!-- 修改#变 标签图标  rel="tag"># -->
             <a href="/tags/Nginx/" <i class="fa fa-tag"> Nginx</a>
           
           <!-- 修改#变 标签图标  rel="tag"># -->
             <a href="/tags/centos7/" <i class="fa fa-tag"> centos7</a>
-          
-          <!-- 修改#变 标签图标  rel="tag"># -->
-            <a href="/tags/Linux/" <i class="fa fa-tag"> Linux</a>
           
         </div>
       
@@ -690,7 +690,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -709,7 +709,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -750,7 +752,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -845,7 +849,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共14.8k字</span>
+  <span class="post-count">博客全站共19.1k字</span>
 </div>
         
 
