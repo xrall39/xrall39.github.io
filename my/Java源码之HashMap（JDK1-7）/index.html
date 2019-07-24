@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="Xrall">
 <meta property="og:description" content="该文章记录学习源码时候的一些问题和看法，当然下面文章就要通过我手来进行解读分析。本文章只适用于1.8以下版本，我看源码的时候用的1.7。 前言吐槽在我独自一人看源码的时候发现一些问题，当然都是针对我个人的。 首先自己看时候发现英语单词看不明白，导致成员变量的含义不清楚，就无法顺利读懂源码。 其次就是，学习源码最好是带着疑问一口气看完，然后在看是否能回答上那些问题，至于哪里有问题，可以百度面试就会出">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T15:53:17.452Z">
+<meta property="og:updated_time" content="2019-07-24T13:51:54.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java源码之HashMap（JDK1.7）">
 <meta name="twitter:description" content="该文章记录学习源码时候的一些问题和看法，当然下面文章就要通过我手来进行解读分析。本文章只适用于1.8以下版本，我看源码的时候用的1.7。 前言吐槽在我独自一人看源码的时候发现一些问题，当然都是针对我个人的。 首先自己看时候发现英语单词看不明白，导致成员变量的含义不清楚，就无法顺利读懂源码。 其次就是，学习源码最好是带着疑问一口气看完，然后在看是否能回答上那些问题，至于哪里有问题，可以百度面试就会出">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-23 23:53:17" itemprop="dateModified" datetime="2019-07-23T23:53:17+08:00">2019-07-23</time>
+                <time title="修改时间：2019-07-24 21:51:54" itemprop="dateModified" datetime="2019-07-24T21:51:54+08:00">2019-07-24</time>
               
             
           </span>
@@ -525,6 +525,7 @@
 <p>跟进源代码定眼一看！啊？简单易懂完全不需要解释。愣了。。。。</p>
 <h3 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h3><p>随着你的数据变多，那么扩容就是必不可少的，那么扩容是怎么做的呢？扩容多少呢？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 再次强调一下必须两者都满足才能扩容，后者条件是插入的位置不为null才能扩容。</span></span><br><span class="line">    <span class="keyword">if</span> ((size &gt;= threshold) &amp;&amp; (<span class="keyword">null</span> != table[bucketIndex])) &#123;</span><br><span class="line">        <span class="comment">// 扩容成原数组的两倍</span></span><br><span class="line">        resize(<span class="number">2</span> * table.length);</span><br><span class="line">        <span class="comment">// 因为扩容的原因导致了下标增长，那么下标就需要重新计算。</span></span><br><span class="line">        hash = (<span class="keyword">null</span> != key) ? hash(key) : <span class="number">0</span>;</span><br><span class="line">        bucketIndex = indexFor(hash, table.length);</span><br><span class="line">    &#125;</span><br><span class="line">    createEntry(hash, key, value, bucketIndex);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 用变量保存原先的数组内容，以原数组长度。</span></span><br><span class="line">    Entry[] oldTable = table;</span><br><span class="line">    <span class="keyword">int</span> oldCapacity = oldTable.length;</span><br><span class="line">    <span class="keyword">if</span> (oldCapacity == MAXIMUM_CAPACITY) &#123;</span><br><span class="line">        <span class="comment">// 数组已经最大了值了，扩容不动了，只好让临界值最大。</span></span><br><span class="line">        threshold = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Entry[] newTable = <span class="keyword">new</span> Entry[newCapacity];</span><br><span class="line">    <span class="comment">// 把原数组中的值放到新数组中</span></span><br><span class="line">    transfer(newTable, initHashSeedAsNeeded(newCapacity));</span><br><span class="line">    table = newTable;</span><br><span class="line">    <span class="comment">// 重新计算临界值</span></span><br><span class="line">    threshold = (<span class="keyword">int</span>)Math.min(newCapacity * loadFactor, MAXIMUM_CAPACITY + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> newCapacity = newTable.length;</span><br><span class="line">    <span class="comment">// 此时table还是原数据</span></span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</span><br><span class="line">        <span class="comment">// 因为可能是链表形式所以采用while循环</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</span><br><span class="line">            Entry&lt;K,V&gt; next = e.next;</span><br><span class="line">            <span class="keyword">if</span> (rehash) &#123;</span><br><span class="line">                <span class="comment">// 这里判断如果为null那肯定hash就是0，下标也肯定是0，否则重新计算hash</span></span><br><span class="line">                e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 重新计算数组下标</span></span><br><span class="line">            <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</span><br><span class="line">            <span class="comment">// 这里看不明白建议手动画图，总之就是图当i相等，他链表数据会反转</span></span><br><span class="line">            <span class="comment">// 假设之前是A-B 扩容后还是同一个位置 数据会变成B-A</span></span><br><span class="line">            e.next = newTable[i];</span><br><span class="line">            newTable[i] = e;</span><br><span class="line">            e = next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>PS：多线程扩容的过程中可能产生死循环，</strong>这里就不展开讲解了，想了解的可以去网上搜一下。</p>
 <p>扩容差不多就是这样的，当时我看的时候感觉最难的点就是扩容后数据如何放的。不画图光脑袋想真的不够用。脑袋想的就是<code>i</code>相等岂不是就死循环了？一直遍历一直循环？一画图就发现，大错特错。<code>e.next</code>是一个整体啊并不是单纯的一个对象，他可能是一个<strong>链表</strong>。想通<code>e.next</code>可能是一个链表的时候，图一画完美理解了。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>说实在，我看源码就发现一个最大问题就是，当我们跟进去后不知道他这个干啥用的，或者说变量名含义是什么。虽然他每一个都有注释，但是对于我来说还是很吃力的。比如HashMap的成员变量： load Factor直译过来加载因子，加载因子？然后就疑惑了，意思都看不懂看蛋蛋啊，更别提长篇大论代码了。说到底还是自己英语底子不行……所以我在分析开头把源代码中属性进行罗列并用最简洁的语言来进行解释。</p>
 <p>我总结的顺序是根据平常写代码的逻辑来进行推导，记录书写的。首先new HashMap，然后添加键值对，然后获取对应的键值对。当然删除这些就没有记录，一方面是因为我当时网上学习的时候大家也没讲解过，二方面是，希望看到本文章的人也能学会自我推导，因为最终路都是要自己走的。</p>
@@ -586,8 +587,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/my/Linux基础学习-权限篇/" rel="prev" title="Linux基础学习-权限篇">
-                Linux基础学习-权限篇 <i class="fa fa-chevron-right"></i>
+              <a href="/my/Java源码之HashMap（JDK1-8-）/" rel="prev" title="Java源码之HashMap（JDK1.8+）">
+                Java源码之HashMap（JDK1.8+） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -664,7 +665,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -823,7 +824,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共19.1k字</span>
+  <span class="post-count">博客全站共22.2k字</span>
 </div>
         
 
