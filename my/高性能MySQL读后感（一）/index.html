@@ -104,25 +104,25 @@
 
 
 
-  <meta name="description" content="因为随着后端写项目，那么不可避免的需要一个人写网页相关的东西，在加上一开始自学的时候没用心记录导致了这方面知识的薄弱所以写下了这一篇文章以供自己温习，且让人快速找到重点。所以这是一篇精简的HTML一些标签基础。 HTML首先来一个最最最基本的模板 &amp;lt;!DOCTYPE html&amp;gt;  告诉游览器这是html5版本 &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;  &amp;lt;">
-<meta name="keywords" content="前端,HTML">
+  <meta name="description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
+<meta name="keywords" content="MySQL,数据库,读后感">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML基础">
-<meta property="og:url" content="http://yoursite.com/my/HTML基础/index.html">
+<meta property="og:title" content="高性能MySQL读后感（一）">
+<meta property="og:url" content="http://yoursite.com/my/高性能MySQL读后感（一）/index.html">
 <meta property="og:site_name" content="Xrall">
-<meta property="og:description" content="因为随着后端写项目，那么不可避免的需要一个人写网页相关的东西，在加上一开始自学的时候没用心记录导致了这方面知识的薄弱所以写下了这一篇文章以供自己温习，且让人快速找到重点。所以这是一篇精简的HTML一些标签基础。 HTML首先来一个最最最基本的模板 &amp;lt;!DOCTYPE html&amp;gt;  告诉游览器这是html5版本 &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;  &amp;lt;">
+<meta property="og:description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-20T16:32:06.000Z">
+<meta property="og:updated_time" content="2019-07-31T15:09:31.461Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML基础">
-<meta name="twitter:description" content="因为随着后端写项目，那么不可避免的需要一个人写网页相关的东西，在加上一开始自学的时候没用心记录导致了这方面知识的薄弱所以写下了这一篇文章以供自己温习，且让人快速找到重点。所以这是一篇精简的HTML一些标签基础。 HTML首先来一个最最最基本的模板 &amp;lt;!DOCTYPE html&amp;gt;  告诉游览器这是html5版本 &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;  &amp;lt;">
+<meta name="twitter:title" content="高性能MySQL读后感（一）">
+<meta name="twitter:description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/my/HTML基础/">
+  <link rel="canonical" href="http://yoursite.com/my/高性能MySQL读后感（一）/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>HTML基础 | Xrall</title>
+  <title>高性能MySQL读后感（一） | Xrall</title>
   
 
 
@@ -353,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/HTML基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/高性能MySQL读后感（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xrall 39">
@@ -370,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTML基础
+          <h1 class="post-title" itemprop="name headline">高性能MySQL读后感（一）
 
               
             
@@ -396,7 +396,7 @@
                 
               
 
-              <time title="创建时间：2019-03-21 22:29:06 / 修改时间：00:32:06" itemprop="dateCreated datePublished" datetime="2019-03-21T22:29:06+08:00">2019-03-21</time>
+              <time title="创建时间：2019-07-31 16:49:40 / 修改时间：23:09:31" itemprop="dateCreated datePublished" datetime="2019-07-31T16:49:40+08:00">2019-07-31</time>
             
 
             
@@ -418,7 +418,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MySQL/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
 
                 
                 
@@ -453,64 +460,54 @@
       
 
       
-        <p>因为随着后端写项目，那么不可避免的需要一个人写网页相关的东西，在加上一开始自学的时候没用心记录导致了这方面知识的薄弱所以写下了这一篇文章以供自己温习，且让人快速找到重点。<br>所以这是一篇精简的HTML一些标签基础。</p>
-<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>首先来一个最最最基本的模板</p>
-<pre><code>&lt;!DOCTYPE html&gt;  告诉游览器这是html5版本
-&lt;html lang=&quot;en&quot;&gt; 
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt; 
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-&lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+        <h2 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h2><h3 id="锁粒度"><a href="#锁粒度" class="headerlink" title="锁粒度"></a>锁粒度</h3><p><strong>为什么要加锁？</strong>：加锁是为了防止<strong>不同的线程访问同一共享资源</strong>造成混乱。</p>
+<p>打个比方：人是不同的线程，卫生间是共享资源<br>你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？</p>
+<p><strong>什么是加锁粒度？</strong>所谓加锁粒度就是你要锁住的范围是多大。</p>
+<p>比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来不让家人进门吧，卫生间就是你的加锁粒度。</p>
+<p><strong>怎样才算合理的加锁粒度呢？</strong></p>
+<p>其实卫生间并不只是用来上厕所的，还可以洗澡，洗手。这里就涉及到优化加锁粒度的问题。<br>你在卫生间里洗澡，其实别人也可以同时去里面洗手，只要做到隔离起来就可以，如果马桶，浴缸，洗漱台都是隔开相对独立的，实际上卫生间可以同时给三个人使用。<br>当然三个人做的事儿不能一样。这样就细化了加锁粒度，你在洗澡的时候只要关上浴室的门，别人还是可以进去洗手的。如果当初设计卫生间的时候没有将不同的功能区域划分隔离开，就不能实现卫生间资源的最大化使用。这就是设计架构的重要性。</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><strong><strong>什么是事务</strong></strong></p>
+<p>事务是访问数据库的一个操作序列，数据库应用系统通过事务集来完成对数据库的存取。<strong>事务的正确执行使得数据库从一种状态转换为另一种状态</strong>。</p>
+<p>事务ACID概念。</p>
+<ul>
+<li>原子性（atomicity）：即不可分割，事务要么全部被执行，要么全部不执行。如果事务的所有子事务全部提交成功，</li>
+<li>一致性（consistency）：事务的执行使得数据库从一种正确状态转换成另外一种正确状态</li>
+<li>隔离性（isolation）：在事务正确提交之前，不允许把事务对该数据的改变提供给任何其他事务，即在事务正确提交之前，它可能的结果不应该显示给其他事务</li>
+<li>持久性（durability）：事务正确提交之后，其结果将永远保存在数据库之中，即使在事务提交之后有了其他故障，事务的处理结果也会得到保存</li>
+</ul>
+<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><ul>
+<li><p>READ UNCOMMITTED（未提交读）：顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p>
+<p>这种情况会出现<strong>脏读（Dirty Read）</strong>，举例：老板给 A 发工资的时候本来是1.3w结果不小心打成了1.6w这时候 A 来查看工资一看1.6w居然涨了3k，此时老板发现了输错了，没有提交事务，然后马上回滚，最后打了1.3w。这时候 A 的工资实际上还是1.3w，他查看到的数据是还没提交事务时候的数据。此时A看到的1.6w就属于脏读。(<strong>脏读如何解决？提交读。</strong>)</p>
+</li>
+<li><p>READ COMMITTED（提交读）：顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p>
+<p>这种情况会出现<strong>不可重复读（nonrepeatable read），前后多次读取，数据内容不一致</strong>，举例：当A卡里有1.3w时候准备付款(此时事务开启)，收费系统检测到1.3w元，在这时候！A 妻子把钱转出补贴家用，当系统准备扣款的时候，检测卡里已经没钱了。（第二次检测时候肯定要等A妻子钱转出的事务结束），A当时就很郁闷了，明明上一秒还有钱的。（<strong>那如何解决不可重复读？可重复读。</strong>）</p>
+</li>
+<li><p>REPEATABLE READ（可重复读）：就是在开始读取数据（事务开启）时，不再允许修改操作。</p>
+<p>这种会出现<strong>幻读（Phantom Read）,前后多次读取，数据总量不一致</strong>，举例：</p>
+<p>开启事务第一次查询，数据量为100，然后做其他事情，另外一头开启事务，增加了100条数据，提交事务，回到前面。其他事情做完后他再来查询一看200条数据。以为发生了幻觉，所以是幻读。</p>
+</li>
+<li><p>SERIALIZABLE（可串行化）：Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</p>
+</li>
+</ul>
+<p>以上 <strong>不可重复读和幻读到底有什么区别呢？</strong></p>
+<ol>
+<li><p>不可重复读是读取了其他事务更改的数据，重点update操作</p>
+<p>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。</p>
+</li>
+<li><p>幻读是读取了其他事务新增的数据，针对insert与delete操作</p>
+<p>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。</p>
+</li>
+</ol>
+<h3 id="事务日志"><a href="#事务日志" class="headerlink" title="事务日志"></a>事务日志</h3><p>事务要保证ACID的完整性必须依靠事务日志做跟踪,每一个操作在真正写入数据数据库之前,先写入到日志文件中</p>
+<p>如要删除一行数据会先在日志文件中将此行标记为删除,但是数据库中的数据文件并没有发生变化.</p>
+<p>​     只有在(包含多个sql语句)整个事务提交后,再把整个事务中的sql语句批量同步到磁盘上的数据库文件</p>
+<p>​     在事务引擎上的每一次写操作都需要执行两遍:<br>​        1.先写入日志文件中<br>​                写入日志文件中的仅仅是操作过程,而不是操作数据本身,所以速度比写数据库文件速度要快很多.<br>​        2.然后再写入数据库文件中</p>
+<p>​                写入数据库文件的操作是重做事务日志中已提交的事务操作的记录.</p>
+<p>​    日志组<br>​         一般不止设置一个日志文件,一个文件写满之后使用另外一个日志文件提高服务器效率.</p>
+<p>​    日志文件的日志同步到磁盘后空间会自动释放,单个日志文件不宜设置过大     如果日志文件过大mysql进程在把日志同步到数据文件的时候可能会崩溃</p>
+<p>用途：</p>
+<p>事务日志可以帮助提高事务的效率,使用事务日志,存储引擎在修改表的数据的时候只需要修改其内存拷贝,再把该行为记录到持久在磁盘的事务日志中.而不用每次都将修改的数据本身持久到磁盘.事务日志采用的是追加方式,因此写日志的操作是磁盘上一小块区域的顺序IO,而不像随机IO需要磁盘在多个地方移动.所以采用事务日志的方式相对来说要快的多,事务日志持久后,内存中的修改在后台慢慢的刷回磁盘.期间如果系统发生崩溃,存储引擎在重启的时候依靠事务日志自动恢复这部分被修改数据</p>
 
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><p>标签限定了文档的开始点和结束点</p>
-<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>用于定义文档的头部</p>
-<h3 id="mate"><a href="#mate" class="headerlink" title="mate"></a>mate</h3><p>提供有关页面的元信息(如针对搜索引擎和更新频度的描述和关键词)</p>
-<h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><p>定义文档的标题</p>
-<h3 id="link-单标签"><a href="#link-单标签" class="headerlink" title="link(单标签)"></a>link(单标签)</h3><p>专门用于加载样式表</p>
-<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><p>专门用于加载Js</p>
-<h2 id="body"><a href="#body" class="headerlink" title="body"></a>body</h2><h3 id="h1-h2…h6"><a href="#h1-h2…h6" class="headerlink" title="h1,h2…h6"></a>h1,h2…h6</h3><p>用于定义标题</p>
-<h3 id="small"><a href="#small" class="headerlink" title="small"></a>small</h3><p>用于定义副标题</p>
-<h3 id="p"><a href="#p" class="headerlink" title="p"></a>p</h3><p>段落标签  </p>
-<h3 id="div"><a href="#div" class="headerlink" title="div"></a>div</h3><p>无属性标签 就像一个空盒子一样</p>
-<h3 id="a"><a href="#a" class="headerlink" title="a"></a>a</h3><p>锚标签  用于跳转指定网页<br>href指定地址 </p>
-<h3 id="img-单标签"><a href="#img-单标签" class="headerlink" title="img(单标签)"></a>img(单标签)</h3><p>图片标签展示 图片的标签<br>src 指定图片地址 可以网络可以本地<br>alt 当图片无法加载时候显示 alt内容</p>
-<h3 id="hr-单标签"><a href="#hr-单标签" class="headerlink" title="hr(单标签)"></a>hr(单标签)</h3><p>水平分割线</p>
-<h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><p>用于创建一张表</p>
-<h4 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h4><p>table row 定义表行</p>
-<h4 id="th"><a href="#th" class="headerlink" title="th"></a>th</h4><p>table head 定义表头</p>
-<h4 id="td"><a href="#td" class="headerlink" title="td"></a>td</h4><p>table body 定义表身体</p>
-<h4 id="thead"><a href="#thead" class="headerlink" title="thead"></a>thead</h4><p>加上此标签 增加 阅读性 包裹 th用</p>
-<h4 id="tbody"><a href="#tbody" class="headerlink" title="tbody"></a>tbody</h4><p>加上此标签 增加 阅读性 包裹 tb用</p>
-<h3 id="header"><a href="#header" class="headerlink" title="header"></a>header</h3><p>代表语义   标签定义文档的页眉（介绍信息）</p>
-<h3 id="footer"><a href="#footer" class="headerlink" title="footer"></a>footer</h3><p>代表语义 标签定义文档或节的页脚 (通常包含文档的作者、版权信息、使用条款链接、联系信息等等)</p>
-<h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>用于为用户输入创建 HTML 表单。常见属性action<br>当要上传文件时候</p>
-<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><p>按钮。单独存在意义不大，一般配合提交用</p>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><p>输入框  很多种样式</p>
-<h3 id="abbr"><a href="#abbr" class="headerlink" title="abbr"></a>abbr</h3><p>专门为缩写的标签</p>
-<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>行内标签写代码展示用</p>
-<h3 id="pre"><a href="#pre" class="headerlink" title="pre"></a>pre</h3><p>对比code  适用于一大段代码</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><pre><code>块标签
-  1.每一个快属性标签都是从新的一行开始，而且之后的元素也都会从新的一行开始
-    （因为每一个块属性标签都会直接占据一整行的内容，导致下面的内容也只能从新的一行开始）
-  2.块属性标签都是可以设置宽度、高度，行高，距顶部距离，距底部距离
-  3.块属性标签的宽度假如不做设置，会直接默认为父元素宽度的100%
-  4.块属性标签是可以直接嵌套的
-  5.p标签中不能嵌套div标签
-  块标签有
-  &lt;div&gt;、&lt;p&gt;、&lt;h1&gt;…&lt;h6&gt;、&lt;ol&gt;、&lt;ul&gt;、&lt;li&gt;、&lt;address&gt;、    &lt;blockquote&gt;、&lt;form&gt;
-行内标签
-1.行属性标签它和其它标签处在同一行内
-2.行属性标签无法设置宽度，高度 行高 距顶部距离 距底部距离
-3.行属性标签的宽度是直接由内部的文字或者图片等内容撑开的
-4.行属性标签内部不能嵌套行属性标签（a链接内不能嵌套其他链接）
-行内标签有
-&lt;a&gt;、&lt;span&gt;、&lt;i&gt;、&lt;em&gt;、&lt;strong&gt;、&lt;label&gt;、&lt;q&gt;、&lt;var&gt;、&lt;cite&gt;、&lt;code&gt;
-</code></pre>
       
     </div>
 
@@ -534,10 +531,13 @@
         <div class="post-tags">
           
           <!-- 修改#变 标签图标  rel="tag"># -->
-            <a href="/tags/前端/" <i class="fa fa-tag"> 前端</a>
+            <a href="/tags/MySQL/" <i class="fa fa-tag"> MySQL</a>
           
           <!-- 修改#变 标签图标  rel="tag"># -->
-            <a href="/tags/HTML/" <i class="fa fa-tag"> HTML</a>
+            <a href="/tags/数据库/" <i class="fa fa-tag"> 数据库</a>
+          
+          <!-- 修改#变 标签图标  rel="tag"># -->
+            <a href="/tags/读后感/" <i class="fa fa-tag"> 读后感</a>
           
         </div>
       
@@ -550,8 +550,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/my/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/my/Nginx安装过程/" rel="next" title="Nginx安装过程">
+                <i class="fa fa-chevron-left"></i> Nginx安装过程
               </a>
             
           </div>
@@ -559,10 +559,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/my/CSS基础/" rel="prev" title="CSS基础">
-                CSS基础 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -748,7 +744,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html"><span class="nav-number">1.1.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#head"><span class="nav-number">1.2.</span> <span class="nav-text">head</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mate"><span class="nav-number">1.2.1.</span> <span class="nav-text">mate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#title"><span class="nav-number">1.2.2.</span> <span class="nav-text">title</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#link-单标签"><span class="nav-number">1.2.3.</span> <span class="nav-text">link(单标签)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#script"><span class="nav-number">1.2.4.</span> <span class="nav-text">script</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#body"><span class="nav-number">1.3.</span> <span class="nav-text">body</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#h1-h2…h6"><span class="nav-number">1.3.1.</span> <span class="nav-text">h1,h2…h6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#small"><span class="nav-number">1.3.2.</span> <span class="nav-text">small</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#p"><span class="nav-number">1.3.3.</span> <span class="nav-text">p</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#div"><span class="nav-number">1.3.4.</span> <span class="nav-text">div</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a"><span class="nav-number">1.3.5.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img-单标签"><span class="nav-number">1.3.6.</span> <span class="nav-text">img(单标签)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hr-单标签"><span class="nav-number">1.3.7.</span> <span class="nav-text">hr(单标签)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table"><span class="nav-number">1.3.8.</span> <span class="nav-text">table</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tr"><span class="nav-number">1.3.8.1.</span> <span class="nav-text">tr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#th"><span class="nav-number">1.3.8.2.</span> <span class="nav-text">th</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#td"><span class="nav-number">1.3.8.3.</span> <span class="nav-text">td</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#thead"><span class="nav-number">1.3.8.4.</span> <span class="nav-text">thead</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tbody"><span class="nav-number">1.3.8.5.</span> <span class="nav-text">tbody</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#header"><span class="nav-number">1.3.9.</span> <span class="nav-text">header</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#footer"><span class="nav-number">1.3.10.</span> <span class="nav-text">footer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#form"><span class="nav-number">1.3.11.</span> <span class="nav-text">form</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#button"><span class="nav-number">1.3.12.</span> <span class="nav-text">button</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input"><span class="nav-number">1.3.13.</span> <span class="nav-text">input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#abbr"><span class="nav-number">1.3.14.</span> <span class="nav-text">abbr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code"><span class="nav-number">1.3.15.</span> <span class="nav-text">code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pre"><span class="nav-number">1.3.16.</span> <span class="nav-text">pre</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.4.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发控制"><span class="nav-number">1.</span> <span class="nav-text">并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#锁粒度"><span class="nav-number">1.1.</span> <span class="nav-text">锁粒度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">2.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离级别"><span class="nav-number">2.1.</span> <span class="nav-text">隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务日志"><span class="nav-number">2.2.</span> <span class="nav-text">事务日志</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -916,7 +912,7 @@
   
     <script>
   window.livereOptions = {
-    refer: 'my/HTML基础/'
+    refer: 'my/高性能MySQL读后感（一）/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
