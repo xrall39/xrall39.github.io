@@ -104,27 +104,27 @@
 
 
 
-  <meta name="description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）　　Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    #">
+  <meta name="description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点： 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事">
 <meta name="keywords" content="Java,Spring,IoC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring之IoC (一)">
-<meta property="og:url" content="http://yoursite.com/my/Spring之IoC/index.html">
+<meta property="og:url" content="http://yoursite.com/my/Spring之IoC (一)/index.html">
 <meta property="og:site_name" content="Xrall">
-<meta property="og:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）　　Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    #">
+<meta property="og:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点： 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/007i4MEmgy1g1gib1v1moj30g50cgjsh.jpg">
-<meta property="og:updated_time" content="2019-04-03T11:32:06.000Z">
+<meta property="og:image" content="http://yoursite.com/my/Spring之IoC%20(一)/Spring.jpg">
+<meta property="og:updated_time" content="2019-08-02T15:33:46.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring之IoC (一)">
-<meta name="twitter:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）　　Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    #">
-<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/007i4MEmgy1g1gib1v1moj30g50cgjsh.jpg">
+<meta name="twitter:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点： 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事">
+<meta name="twitter:image" content="http://yoursite.com/my/Spring之IoC%20(一)/Spring.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/my/Spring之IoC/">
+  <link rel="canonical" href="http://yoursite.com/my/Spring之IoC (一)/">
 
 
 
@@ -355,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/Spring之IoC/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/Spring之IoC (一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xrall 39">
@@ -398,12 +398,24 @@
                 
               
 
-              <time title="创建时间：2019-04-03 17:49:48 / 修改时间：19:32:06" itemprop="dateCreated datePublished" datetime="2019-04-03T17:49:48+08:00">2019-04-03</time>
+              <time title="创建时间：2019-04-03 17:49:48" itemprop="dateCreated datePublished" datetime="2019-04-03T17:49:48+08:00">2019-04-03</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-02 23:33:46" itemprop="dateModified" datetime="2019-08-02T23:33:46+08:00">2019-08-02</time>
               
             
           </span>
@@ -455,20 +467,27 @@
       
 
       
-        <p>　　学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。<br>　　（…等等进入正题前还是得介绍（Copy）一下什么是Spring）<br>　　Spring是一个<strong>开源</strong>、<strong>轻量级</strong>的 <strong>一站式</strong>框架。  </p>
+        <p>　　学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。  </p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Spring是一个<strong>开源</strong>、<strong>轻量级</strong>的 <strong>一站式</strong>框架。  </p>
 <ul>
 <li><strong>轻量级</strong>：如果一个框架没有<strong>侵入性</strong>，就可说该框架是轻量级。</li>
 <li><strong>侵入式</strong>：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。  </li>
 </ul>
-<p>##优点：</p>
-<ul>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ul>
 <li>方便解耦，简化开发</li>
 <li>面向切面编程AOP</li>
 <li>提供众多服务，事务管理</li>
 <li>对众多主流框架集成，如Hibernate,Struts2,JPA等…</li>
 </ul>
-<p>下图为Spring体系结构：<br><img src="https://ww1.sinaimg.cn/large/007i4MEmgy1g1gib1v1moj30g50cgjsh.jpg" alt="Spring-Framework"></p>
-<p>##(介绍草草结束，开始正题…)<br>　　那么一提起Spring那就是两个点：<strong>IoC（控制反转）、AOP（面向切面编程）</strong>，那么我们就需要来讲什么是IoC，什么是AOP。 </p>
+<h3 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h3><h3 id><a href="#" class="headerlink" title></a><img src="Spring.jpg" alt="Spring-Framework"></h3><p>上图所示，核心内容分四个点：</p>
+<ul>
+<li>Beans</li>
+<li>Core</li>
+<li>Context</li>
+<li>Expression Language（SpEL）</li>
+</ul>
+<p>其实在这里有一个疑惑，你说 Core 核心嘛我理解，SpEL 就是支持某种形式的语言嘛，这个Beans和Context怎么理解呢？（Bean下一篇开头有讲解）</p>
+<h2 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h2><p>　　那么一提起Spring那就是两个点：<strong>IoC（控制反转）、AOP（面向切面编程）</strong>，那么我们就需要来讲什么是IoC，什么是AOP。 </p>
 <p>　　IoC（控制反转）：控制反转是什么？控制了什么？怎么又反转了？</p>
 <p>　　我们从JavaSE学习过来，知道使用对象之前必须先通过 <strong>new</strong> 来进行创建的，是程序主动创建 <strong>依赖对象</strong> ，而有了IoC后，我们将 <strong>设计好的对象交给容器控制，而非手动的在对象内部直接控制（如对象的创建）。</strong>那么 <strong>谁控制谁？当然是IoC容器控制了对象；控制了什么？主要控制了外部资源获取（不只是对象包括比如文件等）。</strong>    </p>
 <p>　　PS：依赖对象其实就是一个普通对象，只是被调用者所依赖，称为依赖对象。</p>
@@ -483,7 +502,7 @@
     }
     //....get、set方法
 }
-</code></pre><p> <strong>开车方法</strong> 里面 <strong>new</strong> 一个（买一个）车，开车一结束（方法执行完毕）车自然就销毁了。上面段话，人执行开车方法时候，那么人依赖车（没车咋开车，买一个）。这里车就是 <strong>依赖对象</strong> ，而且你会发现每次开车都需要 <strong>new</strong> （买）一个车，过于浪费。那么改进一下</p>
+</code></pre><p> <strong>开车方法</strong> 里面 <strong>new</strong> 一个（买一个）车，开车一结束（方法执行完毕）车自然就销毁了。上面段话，人执行开车方法时候，那么人依赖车（没车咋开车，new一个）。这里车就是 <strong>依赖对象</strong> ，而且你会发现每次开车都需要 <strong>new</strong> （买）一个车，过于浪费。那么改进一下</p>
 <pre><code>public class Person{
     //属性
 
@@ -495,12 +514,11 @@
 }
 </code></pre><p>我们不必在开车方法里面每次 <strong>new</strong> 一个车，而是通过传参的形式，就变成了我要开车上班了，那么我需要去找（传参）一辆车来开。  </p>
 <p>　　从最开始每次开车要去买一个，变成了每次开车找一个车来开，有什么不同呢，第一种方式就是我要开车就要买车，而第二种就不需要买一辆车（可以是租可以借等…），减少了人对车的依赖。这时候新问题来了不管第一种还是第二种我们都需要手动 <strong>new</strong> 一个车。  </p>
-<p>　　这时候Spring出场！我们就有一了一个 <strong>IoC容器</strong> ，而不在需要自己手动的new了！通过一系列的 <strong>配置</strong> ，可以使其 <strong>IoC容器</strong> 管理这些对象（如：车），在我们需要的时候自动注入（传参）进来。这样 <strong>IoC容器</strong> 就完成了对 <strong>对象的控制，以及反转</strong> ，也就诠释了 <strong>对象（人）只是被动的接受依赖对象（车）</strong> 。<br><br></p>
-<p>##讲了这么多，那IoC能做什么？  </p>
-<p>　　IoC不是一种技术，只是一种<strong>思想</strong>，一个重要的面向对象编程的法则，它能指导我们如何设计出 <strong>松耦合</strong>、更优良的程序。传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试；有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。  </p>
+<p>　　这时候Spring出场！我们就有一了一个 <strong>IoC容器</strong> ，而不在需要自己手动的new了！通过<strong>一系列的 配置</strong> ，可以使其 <strong>IoC容器</strong> 管理这些对象（如：车），在我们需要的时候<strong>自动注入（传参</strong>）进来（<strong>注意是自动！而非我手动形式</strong>）。这样 <strong>IoC容器</strong> 就完成了对 <strong>对象的控制，以及反转</strong> ，也就诠释了 <strong>对象（人）只是被动的接受依赖对象（车）</strong> 。</p>
+<h2 id="讲了这么多，那IoC能做什么？"><a href="#讲了这么多，那IoC能做什么？" class="headerlink" title="讲了这么多，那IoC能做什么？"></a>讲了这么多，那IoC能做什么？</h2><p>　　IoC不是一种技术，只是一种<strong>思想</strong>，一个重要的面向对象编程的法则，它能指导我们如何设计出 <strong>松耦合</strong>、更优良的程序。传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试；有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。  </p>
 <p>　　其实IoC对编程带来的最大改变不是从代码上，而是从思想上，发生了 <strong>“主从换位”</strong> 的变化。应用程序原本是老大，要获取什么资源都是主动出击，但是在IoC/DI思想中，应用程序就变成被动的了，被动的等待IoC容器来创建并注入它所需要的资源了。</p>
 <p>　　IoC很好的体现了面向对象设计法则之一—— 好莱坞法则：“别找我们，我们找你”；即由IoC容器帮对象找相应的依赖对象并注入，而不是由对象主动去找。</p>
-<p>##IoC和DI<br>　　DI—Dependency Injection，即“依赖注入”：是组件之间依赖关系由容器在运行期决定，形象的说，即由容器动态的将某个依赖关系注入到组件之中。依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。通过依赖注入机制，我们只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。</p>
+<h3 id="IoC和DI"><a href="#IoC和DI" class="headerlink" title="IoC和DI"></a>IoC和DI</h3><p>　　DI—Dependency Injection，即“依赖注入”：是组件之间依赖关系由容器在运行期决定，形象的说，即由容器动态的将某个依赖关系注入到组件之中。依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。通过依赖注入机制，我们只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。</p>
 <p>　　理解DI的关键是：“谁依赖谁，为什么需要依赖，谁注入谁，注入了什么”，那我们来深入分析一下：</p>
 <ul>
 <li>谁依赖于谁：当然是应用程序依赖于IoC容器；</li>
@@ -511,6 +529,8 @@
 <p>　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”。</p>
 <p>最后结尾：  </p>
 <p>　　控制正转：我们直接在对象内部通过new进行创建对象，程序主动去创建依赖对象。<br>　　控制反转：由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象。</p>
+<p>上面四个问题一定要反复问自己，并且能想通，回答出来。</p>
+<p>最后的最后感谢你的阅读，如果本文有误或者有什么不理解地方欢迎留言讨论。</p>
 
       
     </div>
@@ -615,8 +635,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -733,6 +762,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点："><span class="nav-number">1.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体系结构"><span class="nav-number">1.2.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.3.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正题"><span class="nav-number">2.</span> <span class="nav-text">正题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讲了这么多，那IoC能做什么？"><span class="nav-number">3.</span> <span class="nav-text">讲了这么多，那IoC能做什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoC和DI"><span class="nav-number">3.1.</span> <span class="nav-text">IoC和DI</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -785,7 +831,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共26.9k字</span>
+  <span class="post-count">博客全站共27k字</span>
 </div>
         
 
@@ -894,7 +940,7 @@
   
     <script>
   window.livereOptions = {
-    refer: 'my/Spring之IoC/'
+    refer: 'my/Spring之IoC (一)/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

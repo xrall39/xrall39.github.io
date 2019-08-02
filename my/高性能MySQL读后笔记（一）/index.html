@@ -107,14 +107,14 @@
   <meta name="description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
 <meta name="keywords" content="MySQL,数据库,读后感">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高性能MySQL读后感（一）">
-<meta property="og:url" content="http://yoursite.com/my/高性能MySQL读后感（一）/index.html">
+<meta property="og:title" content="高性能MySQL读后笔记（一）">
+<meta property="og:url" content="http://yoursite.com/my/高性能MySQL读后笔记（一）/index.html">
 <meta property="og:site_name" content="Xrall">
 <meta property="og:description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-31T15:09:31.461Z">
+<meta property="og:updated_time" content="2019-07-31T15:39:50.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高性能MySQL读后感（一）">
+<meta name="twitter:title" content="高性能MySQL读后笔记（一）">
 <meta name="twitter:description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/my/高性能MySQL读后感（一）/">
+  <link rel="canonical" href="http://yoursite.com/my/高性能MySQL读后笔记（一）/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>高性能MySQL读后感（一） | Xrall</title>
+  <title>高性能MySQL读后笔记（一） | Xrall</title>
   
 
 
@@ -353,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/高性能MySQL读后感（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/高性能MySQL读后笔记（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xrall 39">
@@ -370,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">高性能MySQL读后感（一）
+          <h1 class="post-title" itemprop="name headline">高性能MySQL读后笔记（一）
 
               
             
@@ -396,7 +396,7 @@
                 
               
 
-              <time title="创建时间：2019-07-31 16:49:40 / 修改时间：23:09:31" itemprop="dateCreated datePublished" datetime="2019-07-31T16:49:40+08:00">2019-07-31</time>
+              <time title="创建时间：2019-07-31 16:49:40 / 修改时间：23:39:50" itemprop="dateCreated datePublished" datetime="2019-07-31T16:49:40+08:00">2019-07-31</time>
             
 
             
@@ -507,6 +507,10 @@
 <p>​    日志文件的日志同步到磁盘后空间会自动释放,单个日志文件不宜设置过大     如果日志文件过大mysql进程在把日志同步到数据文件的时候可能会崩溃</p>
 <p>用途：</p>
 <p>事务日志可以帮助提高事务的效率,使用事务日志,存储引擎在修改表的数据的时候只需要修改其内存拷贝,再把该行为记录到持久在磁盘的事务日志中.而不用每次都将修改的数据本身持久到磁盘.事务日志采用的是追加方式,因此写日志的操作是磁盘上一小块区域的顺序IO,而不像随机IO需要磁盘在多个地方移动.所以采用事务日志的方式相对来说要快的多,事务日志持久后,内存中的修改在后台慢慢的刷回磁盘.期间如果系统发生崩溃,存储引擎在重启的时候依靠事务日志自动恢复这部分被修改数据</p>
+<h2 id="储存引擎"><a href="#储存引擎" class="headerlink" title="储存引擎"></a>储存引擎</h2><h3 id="InnoDB存储引擎"><a href="#InnoDB存储引擎" class="headerlink" title="InnoDB存储引擎"></a>InnoDB存储引擎</h3><h3 id="MyISAM存储引擎"><a href="#MyISAM存储引擎" class="headerlink" title="MyISAM存储引擎"></a>MyISAM存储引擎</h3><h3 id="储存引擎选择"><a href="#储存引擎选择" class="headerlink" title="储存引擎选择"></a>储存引擎选择</h3><p><strong>事务</strong></p>
+<p><strong>备份</strong></p>
+<p><strong>崩溃恢复</strong></p>
+<p><strong>独有特性</strong></p>
 
       
     </div>
@@ -744,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发控制"><span class="nav-number">1.</span> <span class="nav-text">并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#锁粒度"><span class="nav-number">1.1.</span> <span class="nav-text">锁粒度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">2.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离级别"><span class="nav-number">2.1.</span> <span class="nav-text">隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务日志"><span class="nav-number">2.2.</span> <span class="nav-text">事务日志</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发控制"><span class="nav-number">1.</span> <span class="nav-text">并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#锁粒度"><span class="nav-number">1.1.</span> <span class="nav-text">锁粒度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">2.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离级别"><span class="nav-number">2.1.</span> <span class="nav-text">隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务日志"><span class="nav-number">2.2.</span> <span class="nav-text">事务日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#储存引擎"><span class="nav-number">3.</span> <span class="nav-text">储存引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#InnoDB存储引擎"><span class="nav-number">3.1.</span> <span class="nav-text">InnoDB存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM存储引擎"><span class="nav-number">3.2.</span> <span class="nav-text">MyISAM存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#储存引擎选择"><span class="nav-number">3.3.</span> <span class="nav-text">储存引擎选择</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -803,7 +807,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共26.9k字</span>
+  <span class="post-count">博客全站共27k字</span>
 </div>
         
 
@@ -912,7 +916,7 @@
   
     <script>
   window.livereOptions = {
-    refer: 'my/高性能MySQL读后感（一）/'
+    refer: 'my/高性能MySQL读后笔记（一）/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
