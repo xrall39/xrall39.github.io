@@ -104,19 +104,19 @@
 
 
 
-  <meta name="description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点： 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事">
+  <meta name="description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事务">
 <meta name="keywords" content="Java,Spring,IoC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring之IoC (一)">
 <meta property="og:url" content="http://yoursite.com/my/Spring之IoC (一)/index.html">
 <meta property="og:site_name" content="Xrall">
-<meta property="og:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点： 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事">
+<meta property="og:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事务">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/my/Spring之IoC%20(一)/Spring.jpg">
-<meta property="og:updated_time" content="2019-08-02T15:33:46.794Z">
+<meta property="og:updated_time" content="2019-08-03T15:47:43.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring之IoC (一)">
-<meta name="twitter:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点： 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事">
+<meta name="twitter:description" content="学习了新知识后除了代码上的敲敲打打，少不了的就是对自己知识的一个总结，总结的同时还能查漏补缺，何乐而不为，多的就不记录了，直接进入正题。   介绍Spring是一个开源、轻量级的 一站式框架。    轻量级：如果一个框架没有侵入性，就可说该框架是轻量级。 侵入式：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。    优点 方便解耦，简化开发 面向切面编程AOP 提供众多服务，事务">
 <meta name="twitter:image" content="http://yoursite.com/my/Spring之IoC%20(一)/Spring.jpg">
 
 
@@ -415,7 +415,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-02 23:33:46" itemprop="dateModified" datetime="2019-08-02T23:33:46+08:00">2019-08-02</time>
+                <time title="修改时间：2019-08-03 23:47:43" itemprop="dateModified" datetime="2019-08-03T23:47:43+08:00">2019-08-03</time>
               
             
           </span>
@@ -473,48 +473,40 @@
 <li><strong>轻量级</strong>：如果一个框架没有<strong>侵入性</strong>，就可说该框架是轻量级。</li>
 <li><strong>侵入式</strong>：使用一个框架，必须实现框架提供的接口，或者继承框架提供的类。  </li>
 </ul>
-<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
 <li>方便解耦，简化开发</li>
 <li>面向切面编程AOP</li>
 <li>提供众多服务，事务管理</li>
 <li>对众多主流框架集成，如Hibernate,Struts2,JPA等…</li>
 </ul>
-<h3 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h3><h3 id><a href="#" class="headerlink" title></a><img src="Spring.jpg" alt="Spring-Framework"></h3><p>上图所示，核心内容分四个点：</p>
+<h3 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h3><p> <img src="Spring.jpg" alt="Spring-Framework"></p>
+<p>上图所示，核心内容分四个点：</p>
 <ul>
 <li>Beans</li>
 <li>Core</li>
 <li>Context</li>
 <li>Expression Language（SpEL）</li>
 </ul>
-<p>其实在这里有一个疑惑，你说 Core 核心嘛我理解，SpEL 就是支持某种形式的语言嘛，这个Beans和Context怎么理解呢？（Bean下一篇开头有讲解）</p>
-<h2 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h2><p>　　那么一提起Spring那就是两个点：<strong>IoC（控制反转）、AOP（面向切面编程）</strong>，那么我们就需要来讲什么是IoC，什么是AOP。 </p>
+<p>其实在这里有一个疑惑，这个核心里内容Beans和Context怎么理解呢？</p>
+<h3 id="Beans"><a href="#Beans" class="headerlink" title="Beans"></a>Beans</h3><p>Bean：<strong>由IoC容器管理的那些组成你应用程序的对象我们就叫它Bean。Bean就是由Spring容器初始化、装配及管理的对象</strong>，除此之外，bean就与应用程序中的其他对象没有什么区别了。</p>
+<p>（简而言之：Bean就是一个普通对象，只不过在IoC容器里的对象我们就成叫它为Bean）。</p>
+<p>Beans主要解决了三件事：Bean 的定义、Bean 的创建以及对 Bean 的解析。而对使用者来说唯一需要关心的就是 Bean 的创建，其他两个由 Spring 在内部帮你完成了，对你来说是透明的。</p>
+<h3 id="Core"><a href="#Core" class="headerlink" title="Core"></a>Core</h3><p>Core 就是发现、建立和维护每个 Bean 之间的关系所需要的一些列的工具，从这个角度看来，Core 这个组件叫 Utils 更能让你理解。</p>
+<h3 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h3><p>发现每个 Bean 之间的关系，为它们建立这种关系并且要维护好这种关系。所以 Context 就是一个 Bean 关系的集合，这个关系集合又叫 IoC 容器，一旦建立起这个 IoC 容器后 Spring 就可以为你工作了。</p>
+<p>Context 作为 Spring 的 IoC 容器，基本上整合了 Spring 的大部分功能，或者说是大部分功能的基础。</p>
+<h2 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h2><p>　　关于Spring的两点：<strong>IoC（控制反转）/DI（依赖注入）、AOP（面向切面编程）</strong>，那么我们就需要来讲什么是IoC，什么是AOP。 </p>
 <p>　　IoC（控制反转）：控制反转是什么？控制了什么？怎么又反转了？</p>
 <p>　　我们从JavaSE学习过来，知道使用对象之前必须先通过 <strong>new</strong> 来进行创建的，是程序主动创建 <strong>依赖对象</strong> ，而有了IoC后，我们将 <strong>设计好的对象交给容器控制，而非手动的在对象内部直接控制（如对象的创建）。</strong>那么 <strong>谁控制谁？当然是IoC容器控制了对象；控制了什么？主要控制了外部资源获取（不只是对象包括比如文件等）。</strong>    </p>
 <p>　　PS：依赖对象其实就是一个普通对象，只是被调用者所依赖，称为依赖对象。</p>
-<p>　　为何是反转，哪些方面反转了：传统方法是我们自己在对象中主动控制获取依赖对象，而反转过后是由容器来帮忙创建及注入依赖对象；这里可能就有疑问，为何是反转呢？ <strong>因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；哪些方面反转了？依赖对象的获取被反转了。</strong><br>　　PS：写了上面一段感觉，怎么说呢，不好理解。那么举个栗子来讲一下： 假如说你上班要开车 ，传统方式  </p>
-<pre><code>public class Person{
-    //属性
-
-    //开车方法
-    public void driverCar(){
-        Car car = new Car();
-        car.run();
-    }
-    //....get、set方法
-}
-</code></pre><p> <strong>开车方法</strong> 里面 <strong>new</strong> 一个（买一个）车，开车一结束（方法执行完毕）车自然就销毁了。上面段话，人执行开车方法时候，那么人依赖车（没车咋开车，new一个）。这里车就是 <strong>依赖对象</strong> ，而且你会发现每次开车都需要 <strong>new</strong> （买）一个车，过于浪费。那么改进一下</p>
-<pre><code>public class Person{
-    //属性
-
-    //开车方法
-    public void driverCar(Car car){
-        car.run();
-    }
-    //....get、set方法
-}
-</code></pre><p>我们不必在开车方法里面每次 <strong>new</strong> 一个车，而是通过传参的形式，就变成了我要开车上班了，那么我需要去找（传参）一辆车来开。  </p>
-<p>　　从最开始每次开车要去买一个，变成了每次开车找一个车来开，有什么不同呢，第一种方式就是我要开车就要买车，而第二种就不需要买一辆车（可以是租可以借等…），减少了人对车的依赖。这时候新问题来了不管第一种还是第二种我们都需要手动 <strong>new</strong> 一个车。  </p>
-<p>　　这时候Spring出场！我们就有一了一个 <strong>IoC容器</strong> ，而不在需要自己手动的new了！通过<strong>一系列的 配置</strong> ，可以使其 <strong>IoC容器</strong> 管理这些对象（如：车），在我们需要的时候<strong>自动注入（传参</strong>）进来（<strong>注意是自动！而非我手动形式</strong>）。这样 <strong>IoC容器</strong> 就完成了对 <strong>对象的控制，以及反转</strong> ，也就诠释了 <strong>对象（人）只是被动的接受依赖对象（车）</strong> 。</p>
+<p>　　为何是反转，哪些方面反转了：传统方法是我们自己在对象中主动控制获取依赖对象，而反转过后是由容器来帮忙创建及注入依赖对象；这里可能就有疑问，为何是反转呢？ <strong>因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；哪些方面反转了？依赖对象的获取被反转了。</strong>    </p>
+<p>　　PS：写了上面一段感觉，怎么说呢，不好理解。那么举个栗子来讲一下： 假如说人会开车 ，传统方式  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Person p1= <span class="keyword">new</span> Person();</span><br><span class="line">        p1.driverCar();</span><br><span class="line">        p1.driverCar();</span><br><span class="line">        p1.driverCar();</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//开车方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">driverCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Car car = <span class="keyword">new</span> Car();</span><br><span class="line">		car.run();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Car</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Sysout.out.printf(<span class="string">"Car running..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>开车方法</strong> 里面 <strong>new</strong> 一个车，开车一结束（方法执行完毕）Car实例自然就销毁了。人执行开车方法时候，那么人依赖车（没车咋开车，new一个）。这里车就是 <strong>依赖对象</strong> ，而且你会发现每次开车都需要 <strong>new</strong> 一个车，过于浪费。那么改进一下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Person p2= <span class="keyword">new</span> Person();</span><br><span class="line">        Car car = <span class="keyword">new</span> Car();</span><br><span class="line">        p2.driverCar(car);</span><br><span class="line">        p2.driverCar(car);</span><br><span class="line">        p2.driverCar(car);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//开车方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">driverCar</span><span class="params">(Car car)</span></span>&#123;</span><br><span class="line">		car.run();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Car</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Sysout.out.printf(<span class="string">"Car running..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们不必在开车方法里面每次 <strong>new</strong> 一个车，而是通过传参的形式，那么只需要传入一辆车来开。  </p>
+<p>　　这两种方式有什么不同呢？第一种方式就是每次开车就需要<strong>new</strong>，而第二种<strong>new</strong>一次一直用，减少了人对车的依赖。这时候新问题来了不管第一种还是第二种我们都需要手动 <strong>new</strong> 一个车。  </p>
+<p>(<strong>疑惑</strong>：为什么传参就减少人对车的依赖？传参的时候我可以传大车，小车，卡车。可以做一个Car 的接口。而第一种直接在方法里new就限制了Car的类型。)</p>
+<p>　　这时候Spring出场！我们就有一了一个 <strong>IoC容器</strong> ，而不在需要自己手动的new了！只需要通过<strong>一系列的 配置</strong> ，可以使其 <strong>IoC容器</strong> 管理这些对象（如：Car），在我们需要的时候<strong>自动注入</strong>进来（<strong>注意是自动！而非我手动形式</strong>）。这样 <strong>IoC容器</strong> 就完成了对 <strong>对象的控制，以及反转</strong> ，也就诠释了 <strong>对象（人）只是被动的接受依赖对象（车）</strong> 。</p>
 <h2 id="讲了这么多，那IoC能做什么？"><a href="#讲了这么多，那IoC能做什么？" class="headerlink" title="讲了这么多，那IoC能做什么？"></a>讲了这么多，那IoC能做什么？</h2><p>　　IoC不是一种技术，只是一种<strong>思想</strong>，一个重要的面向对象编程的法则，它能指导我们如何设计出 <strong>松耦合</strong>、更优良的程序。传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试；有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。  </p>
 <p>　　其实IoC对编程带来的最大改变不是从代码上，而是从思想上，发生了 <strong>“主从换位”</strong> 的变化。应用程序原本是老大，要获取什么资源都是主动出击，但是在IoC/DI思想中，应用程序就变成被动的了，被动的等待IoC容器来创建并注入它所需要的资源了。</p>
 <p>　　IoC很好的体现了面向对象设计法则之一—— 好莱坞法则：“别找我们，我们找你”；即由IoC容器帮对象找相应的依赖对象并注入，而不是由对象主动去找。</p>
@@ -526,7 +518,7 @@
 <li>谁注入谁：很明显是IoC容器注入应用程序某个对象，应用程序依赖的对象；</li>
 <li>注入了什么：就是注入某个对象所需要的外部资源（包括对象、资源、常量数据）。</li>
 </ul>
-<p>　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”。</p>
+<p>　　IoC和DI有什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”。</p>
 <p>最后结尾：  </p>
 <p>　　控制正转：我们直接在对象内部通过new进行创建对象，程序主动去创建依赖对象。<br>　　控制反转：由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象。</p>
 <p>上面四个问题一定要反复问自己，并且能想通，回答出来。</p>
@@ -772,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点："><span class="nav-number">1.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体系结构"><span class="nav-number">1.2.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.3.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正题"><span class="nav-number">2.</span> <span class="nav-text">正题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讲了这么多，那IoC能做什么？"><span class="nav-number">3.</span> <span class="nav-text">讲了这么多，那IoC能做什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoC和DI"><span class="nav-number">3.1.</span> <span class="nav-text">IoC和DI</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体系结构"><span class="nav-number">1.2.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beans"><span class="nav-number">1.3.</span> <span class="nav-text">Beans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core"><span class="nav-number">1.4.</span> <span class="nav-text">Core</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Context"><span class="nav-number">1.5.</span> <span class="nav-text">Context</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正题"><span class="nav-number">2.</span> <span class="nav-text">正题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讲了这么多，那IoC能做什么？"><span class="nav-number">3.</span> <span class="nav-text">讲了这么多，那IoC能做什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoC和DI"><span class="nav-number">3.1.</span> <span class="nav-text">IoC和DI</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -831,7 +823,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共27k字</span>
+  <span class="post-count">博客全站共27.4k字</span>
 </div>
         
 
