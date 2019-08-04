@@ -104,20 +104,20 @@
 
 
 
-  <meta name="description" content="上一篇总结IoC通过Spring容器来进行控制反转。其实你会发现里面也有注入手段 constructor-arg index=”0” value=”Hello Spring!” 那么DI（依赖注入）也有注入两个字，他们的关系 又是如何的呢？ IoC和DI关系　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人">
-<meta name="keywords" content="Java,Spring,DI,IOC">
+  <meta name="description" content="上一篇总结IoC通过Spring容器来进行控制反转。其实里面也有注入手段，那么DI（依赖注入）也有注入两个字，他们的关系 又是如何的呢？ IoC和DI关系　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注">
+<meta name="keywords" content="Java,Spring,IoC,DI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring之DI">
 <meta property="og:url" content="http://yoursite.com/my/Spring之DI/index.html">
 <meta property="og:site_name" content="Xrall">
-<meta property="og:description" content="上一篇总结IoC通过Spring容器来进行控制反转。其实你会发现里面也有注入手段 constructor-arg index=”0” value=”Hello Spring!” 那么DI（依赖注入）也有注入两个字，他们的关系 又是如何的呢？ IoC和DI关系　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人">
+<meta property="og:description" content="上一篇总结IoC通过Spring容器来进行控制反转。其实里面也有注入手段，那么DI（依赖注入）也有注入两个字，他们的关系 又是如何的呢？ IoC和DI关系　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ae01.alicdn.com/kf/HTB1Q9uCRyrpK1RjSZFh760SdXXa0.png">
-<meta property="og:updated_time" content="2019-04-10T07:32:06.000Z">
+<meta property="og:image" content="http://yoursite.com/my/Spring之DI/DI.png">
+<meta property="og:updated_time" content="2019-08-04T05:43:20.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring之DI">
-<meta name="twitter:description" content="上一篇总结IoC通过Spring容器来进行控制反转。其实你会发现里面也有注入手段 constructor-arg index=”0” value=”Hello Spring!” 那么DI（依赖注入）也有注入两个字，他们的关系 又是如何的呢？ IoC和DI关系　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人">
-<meta name="twitter:image" content="https://ae01.alicdn.com/kf/HTB1Q9uCRyrpK1RjSZFh760SdXXa0.png">
+<meta name="twitter:description" content="上一篇总结IoC通过Spring容器来进行控制反转。其实里面也有注入手段，那么DI（依赖注入）也有注入两个字，他们的关系 又是如何的呢？ IoC和DI关系　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注">
+<meta name="twitter:image" content="http://yoursite.com/my/Spring之DI/DI.png">
 
 
 
@@ -398,12 +398,24 @@
                 
               
 
-              <time title="创建时间：2019-04-10 11:10:35 / 修改时间：15:32:06" itemprop="dateCreated datePublished" datetime="2019-04-10T11:10:35+08:00">2019-04-10</time>
+              <time title="创建时间：2019-04-10 11:10:35" itemprop="dateCreated datePublished" datetime="2019-04-10T11:10:35+08:00">2019-04-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-04 13:43:20" itemprop="dateModified" datetime="2019-08-04T13:43:20+08:00">2019-08-04</time>
               
             
           </span>
@@ -421,6 +433,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
 
                 
                 
@@ -455,13 +474,13 @@
       
 
       
-        <p>　　上一篇总结IoC通过Spring容器来进行控制反转。其实你会发现里面也有注入手段 constructor-arg index=”0” value=”Hello Spring!” 那么DI（依赖注入）也有注入两个字，他们的关系 又是如何的呢？</p>
-<h2 id="IoC和DI关系"><a href="#IoC和DI关系" class="headerlink" title="IoC和DI关系"></a>IoC和DI关系</h2><p>　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，“依赖注入”明确描述了“被注入对象依赖IoC容器配置依赖对象”。</p>
+        <p>　　上一篇总结IoC通过Spring容器来进行控制反转。其实里面也有注入手段，那么DI（依赖注入）也有注入两个字，他们的关系 又是如何的呢？</p>
+<h2 id="IoC和DI关系"><a href="#IoC和DI关系" class="headerlink" title="IoC和DI关系"></a>IoC和DI关系</h2><p>　　IoC和DI由什么关系呢？其实它们是同一个概念的不同角度描述，由于控制反转概念比较含糊（可能只是理解为容器控制对象这一个层面，很难让人想到谁来维护对象关系），所以2004年大师级人物Martin Fowler又给出了一个新的名字：“依赖注入”，相对IoC 而言，<strong>“依赖注入”明确描述了“被注入对象依赖IoC容器配置的依赖对象”</strong>。</p>
 <h2 id="属性依赖注入"><a href="#属性依赖注入" class="headerlink" title="属性依赖注入"></a>属性依赖注入</h2><h3 id="构造器注入"><a href="#构造器注入" class="headerlink" title="构造器注入"></a>构造器注入</h3><p>  XML配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 通过构造器参数索引方式依赖注入 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"byIndex"</span> <span class="attr">class</span>=<span class="string">"FQN"</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">value</span>=<span class="string">"Hello World!"</span>/&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"1"</span> <span class="attr">value</span>=<span class="string">"1"</span>/&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- 通过构造器参数类型方式依赖注入 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"byType"</span> <span class="attr">class</span>=<span class="string">"FQN"</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">value</span>=<span class="string">"Hello World!"</span>/&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">type</span>=<span class="string">"int"</span> <span class="attr">value</span>=<span class="string">"2"</span>/&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- 通过构造器参数名称方式依赖注入 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"byName"</span> <span class="attr">class</span>=<span class="string">"FQN"</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"message"</span> <span class="attr">value</span>=<span class="string">"Hello World!"</span>/&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">value</span>=<span class="string">"3"</span>/&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>测试代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDependencyInject</span><span class="params">()</span></span>&#123;</span><br><span class="line">	String xmlPath = <span class="string">"com/beans.xml"</span></span><br><span class="line">	ApplicationContext applicationContext = </span><br><span class="line">					<span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"xmlPath"</span>); </span><br><span class="line">	<span class="comment">//获取根据参数索引依赖注入的Bean  </span></span><br><span class="line">	UserService byIndex = applicationContext.getBean(<span class="string">"byIndex"</span>, UserService.class);  </span><br><span class="line">	byIndex.sayHello();  </span><br><span class="line">	<span class="comment">//获取根据参数类型依赖注入的Bean  </span></span><br><span class="line">	UserService byType = applicationContext.getBean(<span class="string">"byType"</span>, UserService.class);  </span><br><span class="line">	byType.sayHello();  </span><br><span class="line">	<span class="comment">//获取根据参数名字依赖注入的Bean  </span></span><br><span class="line">	UserService byName = applicationContext.getBean(<span class="string">"byName"</span>, UserService.class);  </span><br><span class="line">	byName.sayHello(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>至于还有静态工厂、实例工厂我就不用总结了，基本上和上面一模一样的。</p>
-<h3 id="setter注入"><a href="#setter注入" class="headerlink" title="setter注入"></a>setter注入</h3><p>　　setter注入，是通过构造器、静态工厂或实例工厂实例好Bean后，通过调用Bean类的setter方法进行注入依赖。如图所示：<br>　　<img src="https://ae01.alicdn.com/kf/HTB1Q9uCRyrpK1RjSZFh760SdXXa0.png" alt="enter description here"></p>
+<h3 id="setter注入"><a href="#setter注入" class="headerlink" title="setter注入"></a>setter注入</h3><p>　　setter注入，是通过构造器、静态工厂或实例工厂实例好Bean后，通过调用Bean类的setter方法进行注入依赖。如图所示：<br>　　<img src="DI.png" alt="注入方式"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name; </span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name; </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"hello"</span> + name);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>配置文件</p>
 <pre><code>&lt;bean id=&quot;bean&quot; class=&quot;cn.javass.spring.chapter3.HelloImpl4&quot;&gt;  
@@ -495,6 +514,7 @@
 简写：&lt;constructor-arg index=&quot;0&quot; ref=&quot;引用&quot;/&gt;
 
 全写：&lt;constructor-arg index=&quot;0&quot;&gt;&lt;ref bean=&quot;引用&quot;/&gt;&lt;/constructor-arg&gt;
+
 
 
 
@@ -566,10 +586,10 @@
             <a href="/tags/Spring/" <i class="fa fa-tag"> Spring</a>
           
           <!-- 修改#变 标签图标  rel="tag"># -->
-            <a href="/tags/DI/" <i class="fa fa-tag"> DI</a>
+            <a href="/tags/IoC/" <i class="fa fa-tag"> IoC</a>
           
           <!-- 修改#变 标签图标  rel="tag"># -->
-            <a href="/tags/IOC/" <i class="fa fa-tag"> IOC</a>
+            <a href="/tags/DI/" <i class="fa fa-tag"> DI</a>
           
         </div>
       
@@ -695,7 +715,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -742,9 +764,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -839,7 +859,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共27.4k字</span>
+  <span class="post-count">博客全站共27.7k字</span>
 </div>
         
 

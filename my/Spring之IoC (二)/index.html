@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="之前关于IoC（控制反转）这个思想写了一大堆总结（废话），也算是对其有了一定的了解，那么之前写这么多理论的东西，这一篇就该写一下Spring使用方式。　　首先，关于Spring的IoC我们需要了解以下几点： 关于BeanIoC容器　　IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参">
+  <meta name="description" content="通过上一篇的阅读，你应该知道了什么是Bean，以及一些IoC思想。　　首先，关于Spring的IoC我们需要了解以下几点： 关于BeanIoC容器 ：IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参注入。 Ps:容器就是存放对象的对象，只不过存放对象的对象过于拗口，所以我们称为容器">
 <meta name="keywords" content="Java,Spring,IoC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring之IoC (二)">
 <meta property="og:url" content="http://yoursite.com/my/Spring之IoC (二)/index.html">
 <meta property="og:site_name" content="Xrall">
-<meta property="og:description" content="之前关于IoC（控制反转）这个思想写了一大堆总结（废话），也算是对其有了一定的了解，那么之前写这么多理论的东西，这一篇就该写一下Spring使用方式。　　首先，关于Spring的IoC我们需要了解以下几点： 关于BeanIoC容器　　IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参">
+<meta property="og:description" content="通过上一篇的阅读，你应该知道了什么是Bean，以及一些IoC思想。　　首先，关于Spring的IoC我们需要了解以下几点： 关于BeanIoC容器 ：IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参注入。 Ps:容器就是存放对象的对象，只不过存放对象的对象过于拗口，所以我们称为容器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-03T13:37:59.893Z">
+<meta property="og:updated_time" content="2019-08-04T05:34:54.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring之IoC (二)">
-<meta name="twitter:description" content="之前关于IoC（控制反转）这个思想写了一大堆总结（废话），也算是对其有了一定的了解，那么之前写这么多理论的东西，这一篇就该写一下Spring使用方式。　　首先，关于Spring的IoC我们需要了解以下几点： 关于BeanIoC容器　　IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参">
+<meta name="twitter:description" content="通过上一篇的阅读，你应该知道了什么是Bean，以及一些IoC思想。　　首先，关于Spring的IoC我们需要了解以下几点： 关于BeanIoC容器 ：IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。最直白的展示就是能代替我们new且代替了我们手动传参注入。 Ps:容器就是存放对象的对象，只不过存放对象的对象过于拗口，所以我们称为容器">
 
 
 
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-03 21:37:59" itemprop="dateModified" datetime="2019-08-03T21:37:59+08:00">2019-08-03</time>
+                <time title="修改时间：2019-08-04 13:34:54" itemprop="dateModified" datetime="2019-08-04T13:34:54+08:00">2019-08-04</time>
               
             
           </span>
@@ -431,6 +431,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
 
                 
                 
@@ -465,61 +472,52 @@
       
 
       
-        <p>　　之前关于IoC（控制反转）这个思想写了一大堆总结（废话），也算是对其有了一定的了解，那么之前写这么多理论的东西，这一篇就该写一下Spring使用方式。<br>　　首先，关于Spring的IoC我们需要了解以下几点：</p>
-<h2 id="关于Bean"><a href="#关于Bean" class="headerlink" title="关于Bean"></a>关于Bean</h2><p>IoC容器<br>　　<strong>IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。</strong>最直白的展示就是能代替我们new且代替了我们手动传参注入。</p>
-<h3 id="Bean概念"><a href="#Bean概念" class="headerlink" title="Bean概念"></a>Bean概念</h3><p>　　 由IoC容器管理的那些组成你应用程序的<strong>对象</strong>我们就叫它<strong>Bean。Bean就是由Spring容器初始化、装配及管理的对象</strong>，除此之外，bean就与应用程序中的其他对象没有什么区别了。</p>
-<ul>
-<li>Bean行为定义：这些定义了Bean在容器中的；包括作用域（单例、原型创建）、是否惰性初始化及生命周期等；</li>
-<li>Bean创建方式定义：说明是通过构造器还是工厂方法创建Bean；</li>
-<li>Bean之间关系定义：即对其他bean的引用，也就是依赖关系定义，这些引用bean也可以称之为同事bean 或依赖bean，也就是依赖注入(DI)。</li>
-</ul>
-<p>　　Spring里容器是通过XML配置文件来进行管理Bean的所以先从配置文件入手。直接配置文件先展示一段对比看一下。</p>
-<pre><code>&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt; 这是一堆基本信息
-
-&lt;bean id=&quot;userService&quot; class&quot;FQN&quot; scope=&quot;singleton&quot;&gt;
-// UserService userservice = new UserServiceImp(); 这一句代码等同于上面一段标签体
-
-&lt;/beans&gt;
-</code></pre><p>　　FQN： 全限定类名。就是项目中你所创建该类的位置如：com.soecode.xr.service<br>　　<br>　　bean标签：</p>
+        <p>　　通过上一篇的阅读，你应该知道了什么是Bean，以及一些IoC思想。<br>　　首先，关于Spring的IoC我们需要了解以下几点：</p>
+<h2 id="关于Bean"><a href="#关于Bean" class="headerlink" title="关于Bean"></a>关于Bean</h2><p>IoC容器 ：<strong>IoC容器就是具有依赖注入功能的容器，IoC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。</strong>最直白的展示就是能代替我们new且代替了我们手动传参注入。</p>
+<p><strong>Ps:容器就是存放对象的对象，只不过存放对象的对象过于拗口，所以我们称为容器。</strong></p>
+<h3 id="Bean配置"><a href="#Bean配置" class="headerlink" title="Bean配置"></a>Bean配置</h3><p>　　Spring里容器是通过XML配置文件来进行管理Bean的所以先从配置文件入手。直接展示一段配置文件看看。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">                           http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!-- 上面类似于导包 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userService"</span> <span class="attr">class</span>"<span class="attr">FQN</span>" <span class="attr">scope</span>=<span class="string">"singleton"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 你可以把这整个配置文件看成IoC容器，现在我们写的Bean就是普通对象，我们把对象放入了容器中。 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>FQN： 全限定类名。就是项目中你所创建类的位置如：<code>com.test.spring.Person</code><br>　　<br>bean标签：</p>
 <ul>
 <li>id：标识符或名字（唯一）。</li>
 <li>name：同样为标识符（唯一）。</li>
 <li>class：指定类位置也就是用FQN表示。</li>
 <li>scope：英译为作用域，我们用来定义单例还是多例。</li>
 </ul>
-<p>singleton（单例）：只有一个共享的实例存在，所有对这个bean的请求都会返回这个唯一的实例。<br>prototype（多例）：对这个bean的每次请求都会创建一个新的bean实例，类似于new。</p>
-<h2 id="实例化Bean"><a href="#实例化Bean" class="headerlink" title="实例化Bean"></a>实例化Bean</h2><h3 id="第一种：使用构造器实例化Bean"><a href="#第一种：使用构造器实例化Bean" class="headerlink" title="第一种：使用构造器实例化Bean"></a>第一种：<strong>使用构造器实例化Bean</strong></h3><p>　　如果是默认空构造函数一句话搞定</p>
-<pre><code>&lt;bean id=&quot;bean1&quot; class&quot;FQN&quot;&gt;
-</code></pre><p>　　但是有可能你实例化的时候他还要带参数对吧，那么就需要在配置详细点</p>
-<pre><code>&lt;bean id=&quot;bean2&quot; class=&quot;FQN&quot;&gt;  
-&lt;!-- 指定构造器参数 --&gt;  
-     &lt;constructor-arg index=&quot;0&quot; value=&quot;Hello Spring!&quot;/&gt;  
-//Public userService(String message) Hello Spring就传给 userService
-&lt;/bean&gt;  
-</code></pre><p>　　index表示位置，value表示常量值，也可以指定引用（可能传入的参数是一个类所以要引用另外一个 bean）<br>　　其实这里应该有疑问，既然Spring代替我们手动new那我们又如何使用呢？<br>　　基本格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String xmlPath = &quot;com/beans.xml&quot;;//指的是配置文件路径</span><br><span class="line">//加载配置文件</span><br><span class="line">ApplicationContext ApplicationContext =  </span><br><span class="line">		new ClassPathXmlApplicationContext(&quot;xmlPath&quot;);  </span><br><span class="line">//通过getBean读取出实体类</span><br><span class="line">//bean1 对应配置文件ID   UserService.class对应的是实体类的字节码就不需要强转了</span><br><span class="line">UserService bean = ApplicationContext.getBean(&quot;bean1&quot;, UserService.class); </span><br><span class="line">//没有 UserService.class 这样需要强转</span><br><span class="line">UserService bean1 = (UserService)ApplicationContext.getBean(&quot;bean1&quot;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="第二种：静态工厂实例化Bean"><a href="#第二种：静态工厂实例化Bean" class="headerlink" title="第二种：静态工厂实例化Bean"></a>第二种：<strong>静态工厂实例化Bean</strong></h3><p>先写一个静态工厂<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class BeanStaticFactory(</span><br><span class="line">    //工厂方法  UserService为接口 且是static </span><br><span class="line">    public static UserService newinstance(String message)&#123;</span><br><span class="line">        //返回一个实现类</span><br><span class="line">        return new UserServiceImp(message);</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>静态工厂写完了，接着写 XML 配置文件 </p>
-<pre><code>&lt;bean id=&quot;bean3&quot; class=&quot;FQN&quot; factory-method=&quot;newinstance&quot;&gt;
-    &lt;!-- 指定构造器参数 --&gt;  
-     &lt;constructor-arg index=&quot;0&quot; value=&quot;Hello Spring!&quot;/&gt;  
-&lt;/bean&gt;
-</code></pre><p>应该一眼就看出来多了一个 <strong>factory-method</strong> （工厂方法）这个里面的内容其实就是上面定义的BeanStaticFactory里面的方法名，如果BeanStaticFactory静态工厂里面有许多工厂方法，你不指定谁知道生成哪一个。对吧？<br>最后调用也是一样的 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   String xmlPath = &quot;com/beans.xml&quot;;</span><br><span class="line">ApplicationContext ApplicationContext = </span><br><span class="line">		new ClassPathXmlApplicationContext(&quot;xmlPath&quot;);</span><br><span class="line">   UserService bean3 = beanFactory.getBean(&quot;bean3&quot;, UserService.class);  </span><br><span class="line">   bean2.say();</span><br></pre></td></tr></table></figure>
-<h3 id="第三种：实例工厂实例化Bean"><a href="#第三种：实例工厂实例化Bean" class="headerlink" title="第三种：实例工厂实例化Bean"></a>第三种：<strong>实例工厂实例化Bean</strong></h3><p>　　　　这一种和上面非常相识 只是工厂不是静态(static)的而已。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class BeanTwoInstanceFactory &#123;  </span><br><span class="line">    //不是静态的</span><br><span class="line">    public UserService newInstance(String message) &#123;  </span><br><span class="line">        return new UserServiceImpl2(message);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>singleton（单例）：只有一个共享的实例存在，所有对这个bean的请求都会返回这个唯一的实例。（默认）<br>prototype（多例）：对这个bean的每次请求都会创建一个新的bean实例。</p>
+<p>单例就是 new 一次用到死，多例就是你用一次 new 一次。</p>
+<h2 id="实例化Bean"><a href="#实例化Bean" class="headerlink" title="实例化Bean"></a>实例化Bean</h2><h3 id="第一种：使用构造器实例化Bean"><a href="#第一种：使用构造器实例化Bean" class="headerlink" title="第一种：使用构造器实例化Bean"></a>第一种：<strong>使用构造器实例化Bean</strong></h3><p>如果是默认空构造函数一句话搞定</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"bean1"</span> <span class="attr">class</span>"<span class="attr">FQN</span>"&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是有可能你实例化的时候他还要带参数对吧，那么就需要在配置详细点</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"bean2"</span> <span class="attr">class</span>=<span class="string">"FQN"</span>&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- 指定构造器参数 --&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">value</span>=<span class="string">"zhang san"</span>/&gt;</span>  </span><br><span class="line">//Public Person(String name) zhang san就传给 Person的name</span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>index表示位置，value表示常量值，也可以指定引用（可能传入的参数是一个类所以要引用另外一个 bean）<br>哎呀讲了这么一堆那我该如何使用呢？<br>流程如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String xmlPath = <span class="string">"beans.xml"</span>;<span class="comment">//指的是配置文件路径</span></span><br><span class="line"><span class="comment">//加载配置文件，生成IoC容器</span></span><br><span class="line">ApplicationContext ac =  <span class="keyword">new</span> ClassPathXmlApplicationContext(xmlPath);  </span><br><span class="line"><span class="comment">//通过getBean 从IoC容器读取出实体类</span></span><br><span class="line"><span class="comment">//bean1 对应配置文件ID   Person.class对应的是实体类的字节码就不需要强转了</span></span><br><span class="line">Person bean = ac.getBean(<span class="string">"bean1"</span>, Person.class); </span><br><span class="line"><span class="comment">//没有 UserService.class 这样需要强转</span></span><br><span class="line">Person bean1 = (Person)ac.getBean(<span class="string">"bean1"</span>); </span><br><span class="line"><span class="comment">// 这就可以看出来对于 getBean 有许多重载方法</span></span><br></pre></td></tr></table></figure>
+<h3 id="第二种：静态工厂实例化Bean"><a href="#第二种：静态工厂实例化Bean" class="headerlink" title="第二种：静态工厂实例化Bean"></a>第二种：<strong>静态工厂实例化Bean</strong></h3><p>先写一个静态工厂<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BeanStaticFactory</span>(</span></span><br><span class="line"><span class="class">    //工厂方法 是<span class="title">static</span></span></span><br><span class="line"><span class="class">     <span class="title">public</span> <span class="title">static</span> <span class="title">Person</span> <span class="title">getMan</span>()</span>&#123;</span><br><span class="line">        <span class="comment">//返回一个实现类</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Man();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 可以写很多很多 getXXX等等一系列静态</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>接口与实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Man</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这个要说话啦"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"男人说.."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接着写 XML 配置文件 </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"bean3"</span> <span class="attr">class</span>=<span class="string">"com.test.spring.BeanStaticFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getMan"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>应该一眼就看出来多了一个 <strong>factory-method</strong> （工厂方法）这个里面的内容其实就是上面定义的<code>BeanStaticFactory</code>里面的方法名，如果<code>BeanStaticFactory</code>静态工厂里面有许多工厂方法，你不指定谁知道生成哪一个。对吧？<br>最后调用也是一样的 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String xmlPath = <span class="string">"beans.xml"</span>;</span><br><span class="line">ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(xmlPath);</span><br><span class="line">Person person = ac.getBean(<span class="string">"person"</span>,Person.class);</span><br><span class="line">person.say();</span><br><span class="line"><span class="comment">/*-------------分割一下看一下不用Spring我们的生成方式--------------*/</span></span><br><span class="line">Person p3 = BeanStaticFactory.getMan();</span><br><span class="line">p3.say();</span><br></pre></td></tr></table></figure>
+<p>吐槽：yo.你会发现貌似不用Spring感觉更好一点。</p>
+<h3 id="第三种：实例工厂实例化Bean"><a href="#第三种：实例工厂实例化Bean" class="headerlink" title="第三种：实例工厂实例化Bean"></a>第三种：实例工厂实例化Bean</h3><p>这一种和上面非常相似 只是工厂不是静态(static)的而已。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanInstanceFactory</span> </span>&#123;  </span><br><span class="line">    <span class="comment">//不是静态的 没有static</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserService <span class="title">newInstance</span><span class="params">(String message)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserServiceImpl2(message);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>工厂与实现类前面那个一致。</p>
 <p>接着还是写XML 但是这个和上面的静态是有区别</p>
-<pre><code>&lt;!— 1、定义实例工厂Bean --&gt;  
-&lt;bean id=&quot;beanInstanceFactory&quot; class=&quot;FQN&quot; /&gt;
-&lt;!- 2、实例化工厂 --&gt;
-&lt;bean id=&quot;bean4&quot; class=&quot;FQN&quot; factory-bean=&quot;beanInstanceFactory&quot; factory-method=&quot;newInstance&quot;&gt;
-    &lt;constructor-arg index=&quot;0&quot; value=&quot;Hello Spring!&quot;/&gt;
-&lt;/bean&gt;
-</code></pre><p>一看就发现实例工厂相对于静态有两个不同一个是他需要 自己先申明一次bean 然后在<strong>factory-bean</strong>指定，<br>最后使用方式都是一样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   String xmlPath = &quot;com/beans.xml&quot;;</span><br><span class="line">ApplicationContext ApplicationContext = </span><br><span class="line">		new ClassPathXmlApplicationContext(&quot;xmlPath&quot;);</span><br><span class="line">   UserService bean4 = beanFactory.getBean(&quot;bean4&quot;, UserService.class);  </span><br><span class="line">   bean4.say();</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!—</span> <span class="attr">1</span>、工厂<span class="attr">Bean</span>加入<span class="attr">IoC</span>容器 <span class="attr">--</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"beanInstanceFactory"</span> <span class="attr">class</span>=<span class="string">"com.test.spring.BeanStaticFactory"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!-</span> <span class="attr">2</span>、实例化工厂 <span class="attr">--</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"man"</span> <span class="attr">factory-bean</span>=<span class="string">"beanInstanceFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getMan"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!-</span> 你如果细心就会从上面发现，这一个带有<span class="attr">factory-method</span>的<span class="attr">bean</span>其实等同于代码中的</span></span><br><span class="line"><span class="tag"><span class="attr">Person</span> <span class="attr">p3</span> = <span class="string">BeanInstanceFactory.getMan();</span></span></span><br><span class="line"><span class="tag">第一步的原因是 <span class="attr">beanInstanceFactory</span> 我们也需要手动<span class="attr">new</span> 才能调用里面的<span class="attr">getMan</span></span></span><br><span class="line"><span class="tag">而静态没有这一步是因为 他能直接 类名<span class="attr">.getMan</span> 所以没有加入<span class="attr">IoC</span>容器这一步</span></span><br><span class="line"><span class="tag"><span class="attr">--</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>你细细对比下实例工厂和静态工厂就会发现，其实</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String xmlPath = <span class="string">"beans.xml"</span>;</span><br><span class="line">ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(xmlPath);</span><br><span class="line">Person man = ac.getBean(<span class="string">"man"</span>,Person.class);</span><br><span class="line">man.say();</span><br><span class="line"><span class="comment">/*-------------分割一下看一下不用Spring我们的生成方式--------------*/</span></span><br><span class="line">BeanStaticFactory factory = <span class="keyword">new</span> BeanStaticFactory();</span><br><span class="line">Person person = factory.getMan();</span><br><span class="line">person.say();</span><br></pre></td></tr></table></figure>
 <p>三种方法就算是总结完了，如果看完后回忆一下就会发现最后我们的获取方式几乎都是一模一样的。但是配置文件却是不同的，Spring IoC帮你创建Bean，我们只管使用就可以了，这就是Spring的魅力所在。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>　　这两篇文章，写完基本上IoC的基础算是完事了，到现在我们只涉及到了Bean的实例化，还没有涉及到Bean之间的关系，后面再写吧。而且关于Bean的命名我也没有总结。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Bean加入IoC总结：<code>&lt;bean id=&quot;id&quot; class=&quot;FQN&quot; /&gt;</code> 一个最简单的bean就加入了IoC容器中了，但是有一点就是要加入 bean 的类<strong>需要无参构造器!</strong>这点很重要，至于报什么错，可以自己去试一试。</p>
+<p>获取方式我们也写一下：</p>
+<ul>
+<li>Bean 加入IoC容器中。</li>
+<li>初始化/实例 IoC 容器(内部自动给我们生成 Bean 待我们调用)</li>
+<li>获取所需的 Bean</li>
+</ul>
+<p>基本上获取方式的流程就完了。</p>
+<p>这两篇文章，写完基本上IoC的基础算是完事了，到现在我们只涉及到了Bean的实例化，还没有涉及到Bean之间的关系，还有更多的Bean操作，后面在慢慢记录下来。</p>
+<p>最后的最后感谢大家阅读，如果内容有什么不清晰之处或者有问题的地方，欢迎大家进行留言交流。</p>
 
       
     </div>
@@ -676,7 +674,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -723,9 +723,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -761,7 +759,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Bean"><span class="nav-number">1.</span> <span class="nav-text">关于Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean概念"><span class="nav-number">1.1.</span> <span class="nav-text">Bean概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例化Bean"><span class="nav-number">2.</span> <span class="nav-text">实例化Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种：使用构造器实例化Bean"><span class="nav-number">2.1.</span> <span class="nav-text">第一种：使用构造器实例化Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种：静态工厂实例化Bean"><span class="nav-number">2.2.</span> <span class="nav-text">第二种：静态工厂实例化Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种：实例工厂实例化Bean"><span class="nav-number">2.3.</span> <span class="nav-text">第三种：实例工厂实例化Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Bean"><span class="nav-number">1.</span> <span class="nav-text">关于Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean配置"><span class="nav-number">1.1.</span> <span class="nav-text">Bean配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例化Bean"><span class="nav-number">2.</span> <span class="nav-text">实例化Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种：使用构造器实例化Bean"><span class="nav-number">2.1.</span> <span class="nav-text">第一种：使用构造器实例化Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种：静态工厂实例化Bean"><span class="nav-number">2.2.</span> <span class="nav-text">第二种：静态工厂实例化Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种：实例工厂实例化Bean"><span class="nav-number">2.3.</span> <span class="nav-text">第三种：实例工厂实例化Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -820,7 +818,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共27.4k字</span>
+  <span class="post-count">博客全站共27.7k字</span>
 </div>
         
 
