@@ -104,25 +104,27 @@
 
 
 
-  <meta name="description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
-<meta name="keywords" content="MySQL,数据库,读后感">
+  <meta name="description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等等一系列问题。这里就分析一下他的加载原理，从而得到问题的答案。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    private String name;">
+<meta name="keywords" content="Java,基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高性能MySQL读后笔记（一）">
-<meta property="og:url" content="http://yoursite.com/my/高性能MySQL读后笔记（一）/index.html">
+<meta property="og:title" content="Java类加载顺序">
+<meta property="og:url" content="http://yoursite.com/my/Java类加载顺序/index.html">
 <meta property="og:site_name" content="Xrall">
-<meta property="og:description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
+<meta property="og:description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等等一系列问题。这里就分析一下他的加载原理，从而得到问题的答案。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    private String name;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-03T08:20:02.063Z">
+<meta property="og:image" content="http://yoursite.com/my/Java类加载顺序/lifeCycle.jpg">
+<meta property="og:updated_time" content="2019-08-19T05:45:51.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高性能MySQL读后笔记（一）">
-<meta name="twitter:description" content="并发控制锁粒度为什么要加锁？：加锁是为了防止不同的线程访问同一共享资源造成混乱。 打个比方：人是不同的线程，卫生间是共享资源你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？ 什么是加锁粒度？所谓加锁粒度就是你要锁住的范围是多大。 比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来">
+<meta name="twitter:title" content="Java类加载顺序">
+<meta name="twitter:description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等等一系列问题。这里就分析一下他的加载原理，从而得到问题的答案。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    private String name;">
+<meta name="twitter:image" content="http://yoursite.com/my/Java类加载顺序/lifeCycle.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/my/高性能MySQL读后笔记（一）/">
+  <link rel="canonical" href="http://yoursite.com/my/Java类加载顺序/">
 
 
 
@@ -132,7 +134,7 @@
   };
 </script>
 
-  <title>高性能MySQL读后笔记（一） | Xrall</title>
+  <title>Java类加载顺序 | Xrall</title>
   
 
 
@@ -353,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/高性能MySQL读后笔记（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/my/Java类加载顺序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xrall 39">
@@ -370,7 +372,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">高性能MySQL读后笔记（一）
+          <h1 class="post-title" itemprop="name headline">Java类加载顺序
 
               
             
@@ -396,24 +398,12 @@
                 
               
 
-              <time title="创建时间：2019-07-31 16:49:40" itemprop="dateCreated datePublished" datetime="2019-07-31T16:49:40+08:00">2019-07-31</time>
+              <time title="创建时间：2019-08-19 00:41:23 / 修改时间：13:45:51" itemprop="dateCreated datePublished" datetime="2019-08-19T00:41:23+08:00">2019-08-19</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-03 16:20:02" itemprop="dateModified" datetime="2019-08-03T16:20:02+08:00">2019-08-03</time>
               
             
           </span>
@@ -430,14 +420,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MySQL/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -472,63 +455,17 @@
       
 
       
-        <h2 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h2><h3 id="锁粒度"><a href="#锁粒度" class="headerlink" title="锁粒度"></a>锁粒度</h3><p><strong>为什么要加锁？</strong>：加锁是为了防止<strong>不同的线程访问同一共享资源</strong>造成混乱。</p>
-<p>打个比方：人是不同的线程，卫生间是共享资源<br>你在上洗手间的时候肯定要把门锁上吧，这就是加锁，只要你在里面，这个卫生间就被锁了，只有你出来之后别人才能用。想象一下如果卫生间的门没有锁会是什么样？</p>
-<p><strong>什么是加锁粒度？</strong>所谓加锁粒度就是你要锁住的范围是多大。</p>
-<p>比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来不让家人进门吧，卫生间就是你的加锁粒度。</p>
-<p><strong>怎样才算合理的加锁粒度呢？</strong></p>
-<p>其实卫生间并不只是用来上厕所的，还可以洗澡，洗手。这里就涉及到优化加锁粒度的问题。<br>你在卫生间里洗澡，其实别人也可以同时去里面洗手，只要做到隔离起来就可以，如果马桶，浴缸，洗漱台都是隔开相对独立的，实际上卫生间可以同时给三个人使用。<br>当然三个人做的事儿不能一样。这样就细化了加锁粒度，你在洗澡的时候只要关上浴室的门，别人还是可以进去洗手的。如果当初设计卫生间的时候没有将不同的功能区域划分隔离开，就不能实现卫生间资源的最大化使用。这就是设计架构的重要性。</p>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><strong>什么是事务</strong></p>
-<p>事务是访问数据库的一个操作序列，数据库应用系统通过事务集来完成对数据库的存取。<strong>事务的正确执行使得数据库从一种状态转换为另一种状态</strong>。</p>
-<p>事务ACID概念。</p>
-<ul>
-<li>原子性（atomicity）：即不可分割，事务要么全部被执行，要么全部不执行。如果事务的所有子事务全部提交成功，</li>
-<li>一致性（consistency）：事务的执行使得数据库从一种正确状态转换成另外一种正确状态</li>
-<li>隔离性（isolation）：在事务正确提交之前，不允许把事务对该数据的改变提供给任何其他事务，即在事务正确提交之前，它可能的结果不应该显示给其他事务</li>
-<li>持久性（durability）：事务正确提交之后，其结果将永远保存在数据库之中，即使在事务提交之后有了其他故障，事务的处理结果也会得到保存</li>
-</ul>
-<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><ul>
-<li><p>READ UNCOMMITTED（未提交读）：顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p>
-<ul>
-<li>这种情况会出现<strong>脏读（Dirty Read）</strong>，举例：老板给 A 发工资的时候本来是1.3w结果不小心打成了1.6w这时候 A 来查看工资一看1.6w居然涨了3k，此时老板发现了输错了，没有提交事务，然后马上回滚，最后打了1.3w。这时候 A 的工资实际上还是1.3w，他查看到的数据是还没提交事务时候的数据。此时A看到的1.6w就属于脏读。(<strong>脏读如何解决？提交读。</strong>)</li>
-</ul>
-</li>
-<li><p>READ COMMITTED（提交读）：顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p>
-<ul>
-<li>这种情况会出现<strong>不可重复读（nonrepeatable read），前后多次读取，数据内容不一致</strong>，举例：当A卡里有1.3w时候准备付款(此时事务开启)，收费系统检测到1.3w元，在这时候！A 妻子把钱转出补贴家用，当系统准备扣款的时候，检测卡里已经没钱了。（第二次检测时候肯定要等A妻子钱转出的事务结束），A当时就很郁闷了，明明上一秒还有钱的。（<strong>那如何解决不可重复读？可重复读。</strong>）</li>
-</ul>
-</li>
-<li><p>REPEATABLE READ（可重复读）：就是在开始读取数据（事务开启）时，不再允许修改操作。</p>
-<ul>
-<li>这种会出现<strong>幻读（Phantom Read）,前后多次读取，数据总量不一致</strong>，举例：开启事务第一次查询，数据量为100，然后做其他事情，另外一头开启事务，增加了100条数据，提交事务，回到前面。其他事情做完后他再来查询一看200条数据。以为发生了幻觉，所以是幻读。</li>
-</ul>
-</li>
-<li><p>SERIALIZABLE（可串行化）：Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</p>
-</li>
-</ul>
-<p><strong>不可重复读和幻读到底有什么区别呢？</strong></p>
-<ol>
-<li><p>不可重复读是读取了其他事务更改的数据，重点update操作</p>
-<p>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。</p>
-</li>
-<li><p>幻读是读取了其他事务新增的数据，针对insert与delete操作</p>
-<p>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。</p>
-</li>
-</ol>
-<p>以上这些都是在<strong>并发</strong>事务所导致的常见问题，所以说在<strong>并发</strong>条件下一定要额外注意。</p>
-<h3 id="事务日志"><a href="#事务日志" class="headerlink" title="事务日志"></a>事务日志</h3><p>事务要保证ACID的完整性必须依靠事务日志做跟踪,每一个操作在真正写入数据数据库之前,先写入到日志文件中</p>
-<p>如要删除一行数据会先在日志文件中将此行标记为删除,但是数据库中的数据文件并没有发生变化.</p>
-<p>​     只有在(包含多个sql语句)整个事务提交后,再把整个事务中的sql语句批量同步到磁盘上的数据库文件</p>
-<p>​     在事务引擎上的每一次写操作都需要执行两遍:<br>​        1.先写入日志文件中<br>​                写入日志文件中的仅仅是操作过程,而不是操作数据本身,所以速度比写数据库文件速度要快很多.<br>​        2.然后再写入数据库文件中</p>
-<p>​                写入数据库文件的操作是重做事务日志中已提交的事务操作的记录.</p>
-<p>​    日志组<br>​         一般不止设置一个日志文件,一个文件写满之后使用另外一个日志文件提高服务器效率.</p>
-<p>​    日志文件的日志同步到磁盘后空间会自动释放,单个日志文件不宜设置过大     如果日志文件过大mysql进程在把日志同步到数据文件的时候可能会崩溃</p>
-<p>用途：</p>
-<p>事务日志可以帮助提高事务的效率,使用事务日志,存储引擎在修改表的数据的时候只需要修改其内存拷贝,再把该行为记录到持久在磁盘的事务日志中.而不用每次都将修改的数据本身持久到磁盘.事务日志采用的是追加方式,因此写日志的操作是磁盘上一小块区域的顺序IO,而不像随机IO需要磁盘在多个地方移动.所以采用事务日志的方式相对来说要快的多,事务日志持久后,内存中的修改在后台慢慢的刷回磁盘.期间如果系统发生崩溃,存储引擎在重启的时候依靠事务日志自动恢复这部分被修改数据</p>
-<h2 id="储存引擎"><a href="#储存引擎" class="headerlink" title="储存引擎"></a>储存引擎</h2><h3 id="InnoDB存储引擎"><a href="#InnoDB存储引擎" class="headerlink" title="InnoDB存储引擎"></a>InnoDB存储引擎</h3><h3 id="MyISAM存储引擎"><a href="#MyISAM存储引擎" class="headerlink" title="MyISAM存储引擎"></a>MyISAM存储引擎</h3><h3 id="储存引擎选择"><a href="#储存引擎选择" class="headerlink" title="储存引擎选择"></a>储存引擎选择</h3><p><strong>事务</strong></p>
-<p><strong>备份</strong></p>
-<p><strong>崩溃恢复</strong></p>
-<p><strong>独有特性</strong></p>
+        <p>Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等等一系列问题。这里就分析一下他的加载原理，从而得到问题的答案。</p>
+<h2 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 非静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Cat()&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat构造器"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat eating"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Cat();</span><br><span class="line">        <span class="keyword">new</span> Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 输出结果</span></span><br><span class="line"><span class="comment">cat 静态代码块</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">cat 非静态代码块</span></span><br><span class="line"><span class="comment">cat构造器</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">cat 非静态代码块</span></span><br><span class="line"><span class="comment">cat构造器</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>一个类的初始化顺序就是这样，<code>静态代码块-&gt;非静态代码块-&gt;构造器</code>，但是你仔细看会发现当我们<strong>new两次cat</strong>的时候，<strong>静态代码块只执行了一次！</strong></p>
+<p><strong>PS：换行是我自己加上去的</strong></p>
+<p>再来看另外一个例子</p>
+<h2 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加了一个父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"Animal 静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"Animal 代码块执行了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Animal()&#123;</span><br><span class="line">        System.out.println(<span class="string">"Animal 构造器执行了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 继承父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 非静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Cat()&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat构造器"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat eating"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Cat();</span><br><span class="line">        <span class="keyword">new</span> Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 执行结果</span></span><br><span class="line"><span class="comment">Animal 静态代码块</span></span><br><span class="line"><span class="comment">cat 静态代码块</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Animal 非静态代码块执行了</span></span><br><span class="line"><span class="comment">Animal 构造器执行了</span></span><br><span class="line"><span class="comment">cat 非静态代码块</span></span><br><span class="line"><span class="comment">cat构造器</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Animal 非静态代码块执行了</span></span><br><span class="line"><span class="comment">Animal 构造器执行了</span></span><br><span class="line"><span class="comment">cat 非静态代码块</span></span><br><span class="line"><span class="comment">cat构造器</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>这个例子用到了继承的关系：cat 继承 Animal 初始化顺序</p>
+<p><code>父类静态-&gt;子类静态-&gt;父类非静态代码块-&gt;父类构造器-&gt;子类非静态代码块-&gt;子类构造器</code></p>
+<p>这里我是很有疑问的，首先父类先加载我不反对，但是为什么<strong>父类构造器比子类代码块先执行</strong>？</p>
+<p>下面就正式分析类的生命周期，从而知其然知其所以然。</p>
+<h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p><img src="lifeCycle.jpg" alt="类的生命周期"></p>
 
       
     </div>
@@ -553,13 +490,10 @@
         <div class="post-tags">
           
           <!-- 修改#变 标签图标  rel="tag"># -->
-            <a href="/tags/MySQL/" <i class="fa fa-tag"> MySQL</a>
+            <a href="/tags/Java/" <i class="fa fa-tag"> Java</a>
           
           <!-- 修改#变 标签图标  rel="tag"># -->
-            <a href="/tags/数据库/" <i class="fa fa-tag"> 数据库</a>
-          
-          <!-- 修改#变 标签图标  rel="tag"># -->
-            <a href="/tags/读后感/" <i class="fa fa-tag"> 读后感</a>
+            <a href="/tags/基础/" <i class="fa fa-tag"> 基础</a>
           
         </div>
       
@@ -572,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/my/Nginx安装过程/" rel="next" title="Nginx安装过程">
-                <i class="fa fa-chevron-left"></i> Nginx安装过程
+              <a href="/my/设计模式之动态代理/" rel="next" title="设计模式之动态代理">
+                <i class="fa fa-chevron-left"></i> 设计模式之动态代理
               </a>
             
           </div>
@@ -581,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/my/设计模式之动态代理/" rel="prev" title="设计模式之动态代理">
-                设计模式之动态代理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -778,7 +708,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发控制"><span class="nav-number">1.</span> <span class="nav-text">并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#锁粒度"><span class="nav-number">1.1.</span> <span class="nav-text">锁粒度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">2.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离级别"><span class="nav-number">2.1.</span> <span class="nav-text">隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务日志"><span class="nav-number">2.2.</span> <span class="nav-text">事务日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#储存引擎"><span class="nav-number">3.</span> <span class="nav-text">储存引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#InnoDB存储引擎"><span class="nav-number">3.1.</span> <span class="nav-text">InnoDB存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM存储引擎"><span class="nav-number">3.2.</span> <span class="nav-text">MyISAM存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#储存引擎选择"><span class="nav-number">3.3.</span> <span class="nav-text">储存引擎选择</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#例一"><span class="nav-number">1.</span> <span class="nav-text">例一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例二"><span class="nav-number">2.</span> <span class="nav-text">例二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的生命周期"><span class="nav-number">3.</span> <span class="nav-text">类的生命周期</span></a></li></ol></div>
             
 
           </div>
@@ -946,7 +876,7 @@
   
     <script>
   window.livereOptions = {
-    refer: 'my/高性能MySQL读后笔记（一）/'
+    refer: 'my/Java类加载顺序/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
