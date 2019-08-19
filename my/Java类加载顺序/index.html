@@ -104,19 +104,20 @@
 
 
 
-  <meta name="description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等等一系列问题。这里就分析一下他的加载原理，从而得到问题的答案。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    private String name;">
+  <meta name="description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等一系列问题。下面先举例看一下结果，在从结果中去查看一下实现过程，最后在回过头来回答这些问题。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    privat">
 <meta name="keywords" content="Java,基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java类加载顺序">
 <meta property="og:url" content="http://yoursite.com/my/Java类加载顺序/index.html">
 <meta property="og:site_name" content="Xrall">
-<meta property="og:description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等等一系列问题。这里就分析一下他的加载原理，从而得到问题的答案。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    private String name;">
+<meta property="og:description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等一系列问题。下面先举例看一下结果，在从结果中去查看一下实现过程，最后在回过头来回答这些问题。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    privat">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/my/Java类加载顺序/lifeCycle.jpg">
-<meta property="og:updated_time" content="2019-08-19T05:45:51.776Z">
+<meta property="og:image" content="http://yoursite.com/my/Java类加载顺序/lx1.png">
+<meta property="og:updated_time" content="2019-08-19T08:38:50.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java类加载顺序">
-<meta name="twitter:description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等等一系列问题。这里就分析一下他的加载原理，从而得到问题的答案。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    private String name;">
+<meta name="twitter:description" content="Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等一系列问题。下面先举例看一下结果，在从结果中去查看一下实现过程，最后在回过头来回答这些问题。 例一12345678910111213141516171819202122232425262728293031323334353637class Cat &amp;#123;    privat">
 <meta name="twitter:image" content="http://yoursite.com/my/Java类加载顺序/lifeCycle.jpg">
 
 
@@ -398,7 +399,7 @@
                 
               
 
-              <time title="创建时间：2019-08-19 00:41:23 / 修改时间：13:45:51" itemprop="dateCreated datePublished" datetime="2019-08-19T00:41:23+08:00">2019-08-19</time>
+              <time title="创建时间：2019-08-19 00:41:23 / 修改时间：16:38:50" itemprop="dateCreated datePublished" datetime="2019-08-19T00:41:23+08:00">2019-08-19</time>
             
 
             
@@ -455,17 +456,40 @@
       
 
       
-        <p>Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等等一系列问题。这里就分析一下他的加载原理，从而得到问题的答案。</p>
+        <p>Java类加载机制中最重要的就是程序初始化过程，为什么静态方法不能调用非静态属性？为什么非静态方法又不能调用静态属性？等一系列问题。下面先举例看一下结果，在从结果中去查看一下实现过程，最后在回过头来回答这些问题。</p>
 <h2 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 非静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Cat()&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat构造器"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat eating"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Cat();</span><br><span class="line">        <span class="keyword">new</span> Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 输出结果</span></span><br><span class="line"><span class="comment">cat 静态代码块</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">cat 非静态代码块</span></span><br><span class="line"><span class="comment">cat构造器</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">cat 非静态代码块</span></span><br><span class="line"><span class="comment">cat构造器</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 <p>一个类的初始化顺序就是这样，<code>静态代码块-&gt;非静态代码块-&gt;构造器</code>，但是你仔细看会发现当我们<strong>new两次cat</strong>的时候，<strong>静态代码块只执行了一次！</strong></p>
-<p><strong>PS：换行是我自己加上去的</strong></p>
-<p>再来看另外一个例子</p>
+<p><strong>PS：换行加上去是为了方便观看</strong></p>
 <h2 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加了一个父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"Animal 静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"Animal 代码块执行了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Animal()&#123;</span><br><span class="line">        System.out.println(<span class="string">"Animal 构造器执行了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 继承父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 非静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Cat()&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat构造器"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat eating"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Cat();</span><br><span class="line">        <span class="keyword">new</span> Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 执行结果</span></span><br><span class="line"><span class="comment">Animal 静态代码块</span></span><br><span class="line"><span class="comment">cat 静态代码块</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Animal 非静态代码块执行了</span></span><br><span class="line"><span class="comment">Animal 构造器执行了</span></span><br><span class="line"><span class="comment">cat 非静态代码块</span></span><br><span class="line"><span class="comment">cat构造器</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Animal 非静态代码块执行了</span></span><br><span class="line"><span class="comment">Animal 构造器执行了</span></span><br><span class="line"><span class="comment">cat 非静态代码块</span></span><br><span class="line"><span class="comment">cat构造器</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <p>这个例子用到了继承的关系：cat 继承 Animal 初始化顺序</p>
-<p><code>父类静态-&gt;子类静态-&gt;父类非静态代码块-&gt;父类构造器-&gt;子类非静态代码块-&gt;子类构造器</code></p>
+<p><code>父类静态代码块-&gt;子类静态代码块-&gt;父类非静态代码块-&gt;父类构造器-&gt;子类非静态代码块-&gt;子类构造器</code></p>
 <p>这里我是很有疑问的，首先父类先加载我不反对，但是为什么<strong>父类构造器比子类代码块先执行</strong>？</p>
-<p>下面就正式分析类的生命周期，从而知其然知其所以然。</p>
+<p>现在结果知道了，下面开始分析类的生命周期，从而知其然知其所以然。</p>
 <h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p><img src="lifeCycle.jpg" alt="类的生命周期"></p>
+<p>晃眼一看，生命周期一共有 7 步，其中 2 到 4 分为连接。定眼一看，这么多名词，都是拿来干嘛的？下面笼统的介绍一下：</p>
+<ul>
+<li>加载：就是把字节码文件加载进JVM里面去。</li>
+<li>验证：验证文件的正确性，是否有危害自身安全的操作，数据验证、字节码、有无父类等一系列验证。</li>
+<li>准备：把文件的<strong>静态变量</strong>进行初始化，并且给相对应的默认值。<ul>
+<li>如：<code>String name;</code>默认复制为<code>null</code>如果是<code>int age</code>默认为0但是<code>Integer age</code>默认值则为null</li>
+</ul>
+</li>
+<li>解析：将符号引用直接替换成直接引用。</li>
+<li>初始化：<code>&lt;clinit&gt;</code>，静态变脸进行赋值，静态代码块执行。</li>
+<li>使用：当你调用时<code>new cat()</code>，内部会进行非静态的属性初始化，代码块，构造函数一系列操作。</li>
+<li>卸载：出现<code>System.exit()</code>，或者运行完毕，异常等问题，就会被卸载掉</li>
+</ul>
+<p>以上就是七步骤大概做的什么事情。</p>
+<p>Q：为什么静态方法和静态代码块不能写非静态？</p>
+<p>A：那是因为静态加载的时候非静态都还没进行初始化。等同于还没有分配详细地址，找不到。</p>
+<p>Q：为什么父类的构造方法优先于，子类的代码块？</p>
+<p>A：在运行的时候程序检测到有父类的存在所以，<code>new cat()</code>的同时其实 Java 里面 <strong>new</strong> 了两次一次 cat 一次 animal，然后 父类 先运行，此时就会 执行代码块，在执行构造函数，父类执行完毕，子类在来代码块，构造函数。所以顺序就变成了<code>父类非静态代码块-&gt;父类构造器-&gt;子类非静态代码块-&gt;子类构造器</code>。</p>
+<p><img src="lx1.png" alt="流程图"></p>
+<p>题外话：这里也应该能清晰的理解，类变量，实例变量、成员变量了吧。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文章总的来说就是围绕类的生命周期，知道了类的生命周期也就知道了，为什么不能这样那样加载，为什么会出错。当然还有更多的东西没有将，比如使用的时候为什么会先执行父类，其实这都是JVM的知识点了，双亲委派机制。（这样理解应该没错吧。） 如果有错以后学会了会再来修改文章。</p>
+<p><strong>总结流程</strong></p>
+<p><code>父类静态代码块-&gt;子类静态代码块-&gt;父类非静态代码块-&gt;父类构造器-&gt;子类非静态代码块-&gt;子类构造器</code></p>
+<p><code>静态属性-&gt;静态方法-&gt;静态代码块-&gt;普通属性-&gt;普通方法-&gt;普通代码块-&gt;构造器</code></p>
 
       
     </div>
@@ -708,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#例一"><span class="nav-number">1.</span> <span class="nav-text">例一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例二"><span class="nav-number">2.</span> <span class="nav-text">例二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的生命周期"><span class="nav-number">3.</span> <span class="nav-text">类的生命周期</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#例一"><span class="nav-number">1.</span> <span class="nav-text">例一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例二"><span class="nav-number">2.</span> <span class="nav-text">例二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的生命周期"><span class="nav-number">3.</span> <span class="nav-text">类的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -767,7 +791,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共30.1k字</span>
+  <span class="post-count">博客全站共30.8k字</span>
 </div>
         
 
